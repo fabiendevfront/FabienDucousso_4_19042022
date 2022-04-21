@@ -6,6 +6,12 @@ $font-default: "DM Sans", Arial, Helvetica, sans-serif;
 /***********/
 /* COLORS */
 /**********/
+$primary-color: #ff0000;
+$secondary-color: #3876ac;
+$btn-color: #fe142f;
+$bg-dark: #232323;
+$black: #000000;
+$white: #ffffff;
 
 /**********/
 /* SIZES */
@@ -15,6 +21,6 @@ $font-default: "DM Sans", Arial, Helvetica, sans-serif;
 /* RESPONSIVE */
 /**************/
 $breakpoints: (
-    tablet: 768px,
-    desktop: 992px
+    mobile: 768px,
+    tablet: 992px
 );

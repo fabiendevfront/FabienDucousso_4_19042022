@@ -1,70 +1,69 @@
-.topnav {
-    overflow: hidden;
-    margin: 3.5%;
-  }
-  .header-logo {
-      float: left;
-  }
-  .main-navbar {
-      float: right;
-  }
-  .topnav a {
-    float: left;
-    display: block;
-    color: #000000;
-    text-align: center;
-    padding: 12px 12px;
-    margin: 5px;
-    text-decoration: none;
-    font-size: 20px;
-    font-family: Roboto, sans-serif;
-  }
-  
-  .topnav a:hover {
-    background-color: #ff0000;
-    color: #ffffff;
-    border-radius: 15px;
-  }
-  
-  .topnav a.active {
-    background-color: #ff0000;
-    color: #ffffff;
-    border-radius: 15px;
-  }
-  
-  .topnav .icon {
-    display: none;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .topnav a {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 3%;
+
+    &__logo {
+        height: 40px;
+
+        @include mixins.mobile {
+            height: 30px;
+        }
     }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .topnav.responsive {position: relative;}
-    .topnav.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
+
+    &__nav {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        @include mixins.tablet {
+            flex-direction: column;
+            padding: 15px 3%;
+            border: 2px solid grey;
+            border-radius: 15px;
+            box-shadow: 3px 3px 12px darken(variables.$white, 30%);
+        }
     }
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
+
+    &__link {
+        @include mixins.font-size(18px);
+        padding: 12px 10px;
+        margin: 0 3px;
+
+        &:hover {
+            background-color: #ff0000;
+            color: #ffffff;
+            border-radius: 8px;
+        }
+
+        @include mixins.tablet {
+            // display: none;
+        }
     }
-  }
-  
-  
-  
-   @media screen and (max-width: 540px) {
-    .topnav a {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-      margin-top: -15px;
+
+    &__icon {
+        display: none;
+
+        @include mixins.tablet {
+            display: block;
+            position: absolute;
+            margin: 5px 5px 0 0;
+            right: 0;
+            top: 0;
+            @include mixins.font-size(40px);
+
+            &:hover {
+                color: variables.$primary-color;
+            }
+        }
+
+        @include mixins.mobile {
+            @include mixins.font-size(30px);
+        }
     }
-  } 
+}

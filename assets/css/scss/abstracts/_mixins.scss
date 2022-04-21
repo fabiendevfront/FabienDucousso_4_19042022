@@ -20,16 +20,16 @@
 /* RESPONSIVE */
 /**************/
 
-// 1. Contain media queries for tablet responsive
-@mixin tablet-break {
-	@media screen and (max-width: map-get(variables.$breakpoints, tablet)) {
+// 1. Contain media queries for mobile responsive
+@mixin mobile {
+	@media screen and (max-width: map-get(variables.$breakpoints, mobile)) {
 		@content;
 	}
 }
 
-// 2. Contain media queries for desktop responsive
-@mixin desktop-break {
-	@media screen and (max-width: map-get(variables.$breakpoints, desktop)) {
+// 2. Contain media queries for tablet responsive
+@mixin tablet {
+	@media screen and (max-width: map-get(variables.$breakpoints, tablet)) {
 		@content;
 	}
 }
