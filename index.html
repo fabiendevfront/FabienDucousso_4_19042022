@@ -12,27 +12,29 @@
     <header class="header" id="header-nav">
         <img src="assets/images/Logo.png" alt="Logo du site GameOn" class="header__logo" />
         <nav class="header__nav">
-            <a href="#" class="header__link">Accueil</a>
-            <a href="#" class="header__link">Détails de l'évènement</a>
-            <a href="#" class="header__link">À propos</a>
-            <a href="#" class="header__link">Contact</a>
-            <a href="#" class="header__link">Évènements passés</a>
+            <div class="header__container">
+                <a href="#" class="header__link">Détails de l'évènement</a>
+                <a href="#" class="header__link">À propos</a>
+                <a href="#" class="header__link">Contact</a>
+                <a href="#" class="header__link">Évènements passés</a>
+            </div>
             <a href="javascript:void(0);" class="header__icon" onclick="editNav()">
                 <i class="fa fa-bars"></i>
             </a>
         </nav>
     </header>
     <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-headline">Marathon national de jeux vidéos</h1>
-                <p class="hero-text">Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées !</p>
-                <button class="btn-signup modal-btn">je m'inscris</button>
+        <section class="hero">
+            <div class="hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title title">Marathon national<br> de jeux vidéos</h1>
+                    <p class="hero__subtitle subtitle">Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées !</p>
+                </div>
+                <div class="hero__picture">
+                    <img src="assets/images/bg_img.jpg" alt="Image d'illustration d'une joueuse" />
+                </div>
+                <button class="hero__btn btn-signup modal-btn">je m'inscris</button>
             </div>
-            <div class="hero-img">
-                <img src="assets/images/bg_img.jpg" alt="Image d'illustration d'une joueuse" />
-            </div>
-            <button class="btn-signup modal-btn">je m'inscris</button>
         </section>
         <div class="bground">
             <div class="content">

@@ -5,24 +5,32 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 30px 3%;
 
     &__logo {
         height: 40px;
-
-        @include mixins.mobile {
-            height: 30px;
-        }
     }
 
-    &__nav {
+    nav {
         position: relative;
+        height: 40px;
+    }
+
+    &__container  {
         display: flex;
         justify-content: flex-end;
         align-items: center;
 
         @include mixins.tablet {
+            background: variables.$white;
+            display: none;
+            width: 250px;
+            position: absolute;
+            right: 0;
+            z-index: 4;
             flex-direction: column;
+            align-items: center;
             padding: 15px 3%;
             border: 2px solid grey;
             border-radius: 15px;
@@ -42,7 +50,7 @@
         }
 
         @include mixins.tablet {
-            // display: none;
+            margin: 0;
         }
     }
 
@@ -51,19 +59,16 @@
 
         @include mixins.tablet {
             display: block;
+            cursor: pointer;
             position: absolute;
-            margin: 5px 5px 0 0;
             right: 0;
             top: 0;
+            z-index: 5;
             @include mixins.font-size(40px);
 
             &:hover {
                 color: variables.$primary-color;
             }
-        }
-
-        @include mixins.mobile {
-            @include mixins.font-size(30px);
         }
     }
 }

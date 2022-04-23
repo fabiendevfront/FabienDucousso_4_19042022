@@ -12,6 +12,31 @@
     background: #3876ac;
   }
 
+  .btn-signup {
+    outline: none;
+    text-transform: capitalize;
+    font-size: 1.3rem;
+    padding: 15px 23px;
+    margin: 0;
+    margin-top: 59px;
+  }
+
+  .hero-section > .btn-signup {
+    display: none;
+  }
+
+  @media screen and (max-width: 800px) {
+    .hero-content .btn-signup {
+      display: none;
+    }
+
+    .hero-section > .btn-signup {
+      display: block;
+      margin: 32px auto 10px;
+      padding: 12px 35px;
+    }
+  }
+
   .btn-submit,
   .btn-signup {
     background: #fe142f;

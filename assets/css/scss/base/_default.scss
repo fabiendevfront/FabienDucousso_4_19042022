@@ -1,18 +1,28 @@
+@use '../abstracts/variables';
+
 /************/
 /* GENERAL */
 /***********/
-
-:root {
-    --font-default: "DM Sans", Arial, Helvetica, sans-serif;
-    --font-slab: var(--font-default);
-    --modal-duration: 0.8s;
-}
 
 * {
     box-sizing: border-box;
 }
 
 body {
+    background-color: variables.$white;
     display: flex;
     flex-direction: column;
+}
+
+main {
+    padding: 15px 3%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+li {
+    list-style-type: none;
 }
