@@ -687,71 +687,24 @@ input[data-error]::after {
   font-size: 16px;
 }
 
-.button {
-  background: #fe142f;
-  margin-top: 0.5em;
-  padding: 1em;
-  color: #fff;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.button:hover {
-  background: #3876ac;
-}
-
-.btn-signup {
-  outline: none;
-  text-transform: capitalize;
-  font-size: 1.3rem;
-  padding: 15px 23px;
-  margin: 0;
-  margin-top: 59px;
-}
-
-.hero-section > .btn-signup {
-  display: none;
-}
-
-@media screen and (max-width: 800px) {
-  .hero-content .btn-signup {
-    display: none;
-  }
-
-  .hero-section > .btn-signup {
-    display: block;
-    margin: 32px auto 10px;
-    padding: 12px 35px;
-  }
-}
-.btn-submit,
-.btn-signup {
-  background: #fe142f;
-  display: block;
-  margin: 0 auto;
-  border-radius: 7px;
-  font-size: 1rem;
-  padding: 12px 82px;
-  color: #fff;
-  cursor: pointer;
+.btn {
+  background-color: #fe142f;
+  font-size: 21px;
+  font-size: 1.3125rem;
+  color: #ffffff;
+  border-radius: 8px;
   border: 0;
-}
-
-.modal-btn {
-  font-size: 145%;
-  background: #fe142f;
-  display: flex;
-  margin: auto;
-  padding: 2em;
-  color: #fff;
-  padding: 0.75rem 2.5rem;
-  border-radius: 1rem;
   cursor: pointer;
+  transition: background-color 0.5s linear;
 }
-
-.modal-btn:hover {
-  background: #3876ac;
+.btn:hover {
+  background-color: #3876ac;
+}
+.btn--signup {
+  padding: 12px 24px;
+}
+.btn--modal {
+  padding: 12px 30px;
 }
 
 /*****************/
@@ -888,7 +841,7 @@ footer {
 .hero__content {
   width: 43%;
   position: relative;
-  padding: 60px 5% 0 5%;
+  padding: 60px 3% 0 5%;
   color: #ffffff;
 }
 @media screen and (max-width: 992px) {
@@ -934,7 +887,7 @@ footer {
 }
 .hero__btn {
   position: absolute;
-  bottom: 70px;
+  bottom: 60px;
   left: 5%;
 }
 @media screen and (max-width: 992px) {

@@ -33,7 +33,7 @@
     &__content {
         width: 43%;
         position: relative;
-        padding: 60px 5% 0 5%;
+        padding: 60px 3% 0 5%;
         color: variables.$white;
 
         @include mixins.tablet {
@@ -80,7 +80,7 @@
 
     &__btn {
         position: absolute;
-        bottom: 70px;
+        bottom: 60px;
         left: 5%;
 
         @include mixins.tablet {
