@@ -8,13 +8,21 @@
     align-items: center;
     padding: 30px 3%;
 
+    @include mixins.tablet {
+        padding: 30px 5%;
+    }
+
     &__logo {
         height: 40px;
     }
 
     nav {
         position: relative;
-        height: 40px;
+        height: auto;
+
+        @include mixins.tablet {
+            height: 51px;
+        }
     }
 
     &__container  {
@@ -56,15 +64,16 @@
 
     &__icon {
         display: none;
+        line-height: 0;
 
         @include mixins.tablet {
             display: block;
             cursor: pointer;
             position: absolute;
             right: 0;
-            top: 0;
+            bottom: 5px;
             z-index: 5;
-            @include mixins.font-size(40px);
+            @include mixins.font-size(30px);
 
             &:hover {
                 color: variables.$primary-color;

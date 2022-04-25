@@ -1,4 +1,5 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins';
 
 /************/
 /* GENERAL */
@@ -16,6 +17,10 @@ body {
 
 main {
     padding: 15px 3%;
+
+    @include mixins.tablet {
+        padding: 15px 5%;
+    }
 }
 
 img {

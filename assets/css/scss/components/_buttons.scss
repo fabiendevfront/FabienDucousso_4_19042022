@@ -2,7 +2,7 @@
 @use '../abstracts/mixins';
 
 .btn {
-    background-color: variables.$btn-color;
+    background-color: variables.$terciary-color;
     @include mixins.font-size(21px);
     color: variables.$white;
     border-radius: 8px;
@@ -15,7 +15,11 @@
     }
 
     &--signup {
-        padding: 12px 24px;
+        padding: 12px 35px;
+
+        @include mixins.wide-screen {
+            @include mixins.font-size(32px);
+        }
     }
 
     &--modal {

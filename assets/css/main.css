@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -350,6 +351,12 @@ template {
 /***************/
 /* RESPONSIVE */
 /**************/
+/**********/
+/* FONTS */
+/*********/
+/***************/
+/* RESPONSIVE */
+/**************/
 /************/
 /* GENERAL */
 /***********/
@@ -366,6 +373,11 @@ body {
 main {
   padding: 15px 3%;
 }
+@media screen and (max-width: 992px) {
+  main {
+    padding: 15px 5%;
+  }
+}
 
 img {
   max-width: 100%;
@@ -376,12 +388,6 @@ li {
   list-style-type: none;
 }
 
-/**********/
-/* FONTS */
-/*********/
-/***************/
-/* RESPONSIVE */
-/**************/
 /***********/
 /* GENERAL */
 /***********/
@@ -404,7 +410,13 @@ a:hover {
   font-size: 96px;
   font-size: 6rem;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.1;
+}
+@media screen and (min-width: 1920px) {
+  .title {
+    font-size: 110px;
+    font-size: 6.875rem;
+  }
 }
 @media screen and (max-width: 992px) {
   .title {
@@ -417,6 +429,12 @@ a:hover {
   font-size: 24px;
   font-size: 1.5rem;
   font-weight: 400;
+}
+@media screen and (min-width: 1920px) {
+  .subtitle {
+    font-size: 32px;
+    font-size: 2rem;
+  }
 }
 
 @keyframes modalopen {
@@ -701,7 +719,13 @@ input[data-error]::after {
   background-color: #3876ac;
 }
 .btn--signup {
-  padding: 12px 24px;
+  padding: 12px 35px;
+}
+@media screen and (min-width: 1920px) {
+  .btn--signup {
+    font-size: 32px;
+    font-size: 2rem;
+  }
 }
 .btn--modal {
   padding: 12px 30px;
@@ -717,12 +741,22 @@ input[data-error]::after {
   align-items: center;
   padding: 30px 3%;
 }
+@media screen and (max-width: 992px) {
+  .header {
+    padding: 30px 5%;
+  }
+}
 .header__logo {
   height: 40px;
 }
 .header nav {
   position: relative;
-  height: 40px;
+  height: auto;
+}
+@media screen and (max-width: 992px) {
+  .header nav {
+    height: 51px;
+  }
 }
 .header__container {
   display: flex;
@@ -763,6 +797,7 @@ input[data-error]::after {
 }
 .header__icon {
   display: none;
+  line-height: 0;
 }
 @media screen and (max-width: 992px) {
   .header__icon {
@@ -770,39 +805,36 @@ input[data-error]::after {
     cursor: pointer;
     position: absolute;
     right: 0;
-    top: 0;
+    bottom: 5px;
     z-index: 5;
-    font-size: 40px;
-    font-size: 2.5rem;
+    font-size: 30px;
+    font-size: 1.875rem;
   }
   .header__icon:hover {
     color: #ff0000;
   }
 }
 
-footer {
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 0 20px;
-}
-
-.copyrights {
-  color: #fe142f;
-  padding: 0;
-  font-size: 1rem;
-  margin: 60px 0 30px;
-  font-weight: bolder;
-}
-
-.copyrights {
-  margin-top: 50px;
-  text-align: center;
-}
-
 .footer {
-  margin: 20px;
-  padding: 10px;
-  font-family: var(--font-slab);
+  padding-left: 3%;
+  font-family: "Roboto", sans-serif;
+  text-align: start;
+}
+@media screen and (max-width: 992px) {
+  .footer {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+.footer__copyrights {
+  color: #fe142f;
+  font-weight: 700;
+  margin: 0 0 50px 0;
+}
+@media screen and (max-width: 992px) {
+  .footer__copyrights {
+    margin: 0 0 40px 0;
+  }
 }
 
 /*****************/
@@ -810,10 +842,11 @@ footer {
 /****************/
 .hero {
   width: 100%;
-  height: 657px;
+  height: 72vh;
   background: #232323;
   border-radius: 8px;
   box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.25);
+  margin-bottom: 50px;
 }
 @media screen and (max-width: 992px) {
   .hero {
@@ -839,9 +872,7 @@ footer {
   }
 }
 .hero__content {
-  width: 43%;
-  position: relative;
-  padding: 60px 3% 0 5%;
+  width: 45%;
   color: #ffffff;
 }
 @media screen and (max-width: 992px) {
@@ -850,19 +881,59 @@ footer {
     color: #000000;
   }
 }
+.hero__title, .hero__subtitle, .hero__btn {
+  position: absolute;
+}
+@media screen and (max-width: 992px) {
+  .hero__title, .hero__subtitle, .hero__btn {
+    position: unset;
+  }
+}
 .hero__title {
-  white-space: nowrap;
+  width: 90%;
+  top: 50px;
+  left: 5%;
   margin: 0 0 73px 0;
+}
+@media screen and (min-width: 1920px) {
+  .hero__title {
+    width: 70%;
+  }
 }
 @media screen and (max-width: 992px) {
   .hero__title {
-    white-space: normal;
-    z-index: 1;
+    width: 100%;
+    margin: 0 0 40px 0;
   }
 }
 .hero__subtitle {
+  width: 38%;
+  bottom: 160px;
+  left: 5%;
   margin: 0;
   padding: 0;
+}
+@media screen and (min-width: 1920px) {
+  .hero__subtitle {
+    width: 30%;
+    bottom: 200px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .hero__subtitle {
+    width: 100%;
+    margin: 0 0 40px 0;
+  }
+}
+.hero__btn {
+  bottom: 60px;
+  left: 5%;
+}
+@media screen and (max-width: 992px) {
+  .hero__btn {
+    margin-top: 20px;
+    margin: 0 0 40px 0;
+  }
 }
 .hero__picture {
   width: 55%;
@@ -870,8 +941,8 @@ footer {
 @media screen and (max-width: 992px) {
   .hero__picture {
     width: 100%;
-    height: 330px;
-    padding: 0 3%;
+    height: 500px;
+    margin: 0 0 40px 0;
   }
 }
 .hero__picture img {
@@ -883,17 +954,6 @@ footer {
 @media screen and (max-width: 992px) {
   .hero__picture img {
     border-radius: 8px;
-  }
-}
-.hero__btn {
-  position: absolute;
-  bottom: 60px;
-  left: 5%;
-}
-@media screen and (max-width: 992px) {
-  .hero__btn {
-    position: unset;
-    margin-top: 20px;
   }
 }
 

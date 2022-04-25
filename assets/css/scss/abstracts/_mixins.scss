@@ -33,3 +33,10 @@
 		@content;
 	}
 }
+
+// 3. Contain media queries for wide-screen responsive
+@mixin wide-screen {
+	@media screen and (min-width: map-get(variables.$breakpoints, wide-screen)) {
+		@content;
+	}
+}
