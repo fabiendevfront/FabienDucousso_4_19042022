@@ -2,7 +2,7 @@
 @use '../abstracts/mixins';
 
 .btn {
-    background-color: variables.$terciary-color;
+    background-color: variables.$primary-color;
     @include mixins.font-size(21px);
     color: variables.$white;
     border-radius: 8px;
@@ -11,7 +11,7 @@
     transition: background-color 0.5s linear;
 
     &:hover {
-        background-color: #3876ac;
+        background-color: variables.$secondary-color;
     }
 
     &--signup {

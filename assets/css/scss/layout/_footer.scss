@@ -6,17 +6,17 @@
     font-family: variables.$font-secondary;
     text-align: start;
 
-    @include mixins.tablet {
+    @include mixins.small-screen {
         text-align: center;
         padding-left: 0;
     }
 
     &__copyrights {
-        color: variables.$terciary-color;
+        color: variables.$primary-color;
         font-weight: 700;
         margin: 0 0 50px 0;
 
-        @include mixins.tablet {
+        @include mixins.small-screen {
             margin: variables.$resp-mb;
         }
     }

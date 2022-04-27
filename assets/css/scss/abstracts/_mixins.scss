@@ -20,21 +20,14 @@
 /* RESPONSIVE */
 /**************/
 
-// 1. Contain media queries for mobile responsive
-@mixin mobile {
-	@media screen and (max-width: map-get(variables.$breakpoints, mobile)) {
+// 1. Contain media queries for small-screen (tablette and mobile)
+@mixin small-screen {
+	@media screen and (max-width: map-get(variables.$breakpoints, small-screen)) {
 		@content;
 	}
 }
 
-// 2. Contain media queries for tablet responsive
-@mixin tablet {
-	@media screen and (max-width: map-get(variables.$breakpoints, tablet)) {
-		@content;
-	}
-}
-
-// 3. Contain media queries for wide-screen responsive
+// 2. Contain media queries for wide-screen (> 1920px)
 @mixin wide-screen {
 	@media screen and (min-width: map-get(variables.$breakpoints, wide-screen)) {
 		@content;

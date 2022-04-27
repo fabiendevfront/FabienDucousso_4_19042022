@@ -12,6 +12,11 @@
     overflow: auto;
     background-color: variables.$bg-modal;
 
+    @include mixins.small-screen {
+        top: 80px;
+        background-color: transparent;
+    }
+
     &__container {
         position: relative;
         width: 100%;

@@ -10,6 +10,7 @@ body {
     font-family: variables.$font-default;
     @include mixins.font-size(18px);
     line-height: 1.5;
+    color: variables.$black;
 }
 
 a {
@@ -30,7 +31,7 @@ a {
         @include mixins.font-size(110px);
     }
 
-    @include mixins.tablet {
+    @include mixins.small-screen {
         @include mixins.font-size(65px);
     }
 }

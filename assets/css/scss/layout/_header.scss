@@ -8,7 +8,7 @@
     align-items: center;
     padding: 30px 3%;
 
-    @include mixins.tablet {
+    @include mixins.small-screen {
         padding: 30px 5%;
     }
 
@@ -20,7 +20,7 @@
         position: relative;
         height: auto;
 
-        @include mixins.tablet {
+        @include mixins.small-screen {
             height: 51px;
         }
     }
@@ -30,7 +30,7 @@
         justify-content: flex-end;
         align-items: center;
 
-        @include mixins.tablet {
+        @include mixins.small-screen {
             background: variables.$white;
             display: none;
             width: 250px;
@@ -40,7 +40,7 @@
             flex-direction: column;
             align-items: center;
             padding: 15px 3%;
-            border: 2px solid grey;
+            border: 2px solid darken(variables.$white, 50);
             border-radius: 15px;
             box-shadow: 3px 3px 12px darken(variables.$white, 30%);
         }
@@ -52,12 +52,12 @@
         margin: 0 3px;
 
         &:hover {
-            background-color: #ff0000;
-            color: #ffffff;
+            background-color: variables.$primary-color;
+            color: variables.$white;
             border-radius: 8px;
         }
 
-        @include mixins.tablet {
+        @include mixins.small-screen {
             margin: 0;
         }
     }
@@ -66,7 +66,7 @@
         display: none;
         line-height: 0;
 
-        @include mixins.tablet {
+        @include mixins.small-screen {
             display: block;
             cursor: pointer;
             position: absolute;

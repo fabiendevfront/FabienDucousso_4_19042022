@@ -6,31 +6,31 @@
     &__group {
         margin-top: 15px;
 
-        [data-error]::after {
-            content: attr(data-error);
-            font-size: 0.4em;
-            color: #e54858;
-            display: block;
-            margin-top: 7px;
-            margin-bottom: 7px;
-            text-align: right;
-            line-height: 0.3;
-            opacity: 0;
-            transition: 0.3s;
-        }
+        // [data-error]::after {
+        //     content: attr(data-error);
+        //     font-size: 0.4em;
+        //     color: #e54858;
+        //     display: block;
+        //     margin-top: 7px;
+        //     margin-bottom: 7px;
+        //     text-align: right;
+        //     line-height: 0.3;
+        //     opacity: 0;
+        //     transition: 0.3s;
+        // }
 
-        [data-error-visible="true"]::after {
-            opacity: 1;
-        }
+        // [data-error-visible="true"]::after {
+        //     opacity: 1;
+        // }
 
-        [data-error-visible="true"] .text-control {
-            border: 2px solid #e54858;
-        }
+        // [data-error-visible="true"] .text-control {
+        //     border: 2px solid #e54858;
+        // }
     }
 
     &__input {
         padding: 8px;
-        border: 0.8px solid #ccc;
+        border: 0.8px solid darken(variables.$white, 20);
         outline: none;
 
         &--text {
@@ -54,7 +54,7 @@
             }
 
             &:checked + .form-comp__label .form-comp__checkbox-icon--square {
-                background: variables.$checkbox-color;
+                background-color: variables.$checkbox-color;
             }
         }
     }
@@ -85,7 +85,7 @@
         transition: 0.3s;
 
         &--round {
-            border: 2px solid #c4c4c4;
+            border: 2px solid darken(variables.$white, 23);
             border-radius: 50%;
 
             &::after {
@@ -108,7 +108,7 @@
         &--square {
             border-radius: 4px;
             border: 0;
-            background: #c4c4c4;
+            background-color: darken(variables.$white, 23);
 
 
             &::after {
@@ -133,13 +133,8 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: space-around;
         margin: 0;
         padding: 0;
-
-        li {
-            width: 40%;
-        }
     }
 
     &__btn {
