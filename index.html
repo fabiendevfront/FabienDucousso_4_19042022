@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script defer src="assets/js/modal.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
     <title>GameOn - Réservation</title>
 </head>
 <body>
     <header class="header" id="header-nav">
         <img src="assets/images/Logo.png" alt="Logo du site GameOn" class="header__logo" />
         <nav class="header__nav">
-            <div class="header__container">
+            <div class="header__container" id="myNav">
                 <a href="#" class="header__link">Détails de l'évènement</a>
                 <a href="#" class="header__link">Évènements passés</a>
                 <a href="#" class="header__link">À propos</a>
                 <a href="#" class="header__link">Contact</a>
             </div>
-            <a href="javascript:void(0);" class="header__icon" onclick="editNav()">
+            <a href="javascript:void(0);" class="header__icon" id="menuIcon">
                 <i class="fa fa-bars"></i>
             </a>
         </nav>

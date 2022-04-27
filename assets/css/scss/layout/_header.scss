@@ -44,6 +44,10 @@
             border-radius: 15px;
             box-shadow: 3px 3px 12px darken(variables.$white, 30%);
         }
+
+        &--responsive {
+            display: flex;
+        }
     }
 
     &__link {

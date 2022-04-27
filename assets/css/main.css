@@ -684,6 +684,9 @@ a:hover {
     box-shadow: 3px 3px 12px #b3b3b3;
   }
 }
+.header__container--responsive {
+  display: flex;
+}
 .header__link {
   font-size: 18px;
   font-size: 1.125rem;
