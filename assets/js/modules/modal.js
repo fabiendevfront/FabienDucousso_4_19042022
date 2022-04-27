@@ -1,10 +1,24 @@
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
+/*
+Module for display and hide modal
+*/
 
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// DOM Element
+const modalItem = document.querySelector(".modal");
+const modalBtn = document.querySelector(".hero__btn");
+const closeBtn = document.querySelector(".modal__close")
 
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
+// Add style display block that display the modal
+function displayModal() {
+  modalItem.style.display = "block";
 }
+
+// Add style display none that hide the modal
+function hideModal() {
+  modalItem.style.display = "none";
+}
+
+// Display modal when clicking on button "Je m'inscris" with "displayModal" function
+modalBtn.onclick = displayModal;
+
+// Hide modal when clicking on button "X" with "hideModal" function
+closeBtn.onclick = hideModal;
