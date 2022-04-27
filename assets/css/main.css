@@ -672,13 +672,13 @@ a:hover {
   .header__container {
     background: #ffffff;
     display: none;
-    width: 250px;
+    width: 300px;
     position: absolute;
-    right: 0;
+    right: -10px;
     z-index: 4;
     flex-direction: column;
-    align-items: center;
-    padding: 15px 3%;
+    align-items: flex-start;
+    padding: 20px 15px;
     border: 2px solid gray;
     border-radius: 15px;
     box-shadow: 3px 3px 12px #b3b3b3;
@@ -686,6 +686,18 @@ a:hover {
 }
 .header__container--responsive {
   display: flex;
+}
+.header__container--responsive + .header__icon {
+  font-size: 20px;
+  font-size: 1.25rem;
+  background-color: #fe142f;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  transform: translate(1px, 15px);
+}
+.header__container--responsive + .header__icon:hover {
+  color: #ffffff;
 }
 .header__link {
   font-size: 18px;
@@ -717,9 +729,10 @@ a:hover {
     z-index: 5;
     font-size: 30px;
     font-size: 1.875rem;
+    color: #fe142f;
   }
   .header__icon:hover {
-    color: #fe142f;
+    color: #000000;
   }
 }
 
