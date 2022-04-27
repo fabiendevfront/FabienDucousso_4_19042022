@@ -2,8 +2,8 @@
 @use '../abstracts/mixins';
 
 .modal {
-    // display: none;
-    display: block;
+    display: none;
+    // display: block;
     position: fixed;
     left: 0;
     top: 0;
