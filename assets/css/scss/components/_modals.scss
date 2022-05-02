@@ -39,6 +39,14 @@
         cursor: pointer;
         transform: scale(0.7);
 
+        &:hover {
+
+            &:before,
+            &:after {
+                background-color: variables.$primary-color;
+            }
+        }
+
         &:before,
         &:after {
             content: "";
@@ -60,5 +68,40 @@
 
     &__body {
         padding: 20px 8%;
+    }
+
+    &__success {
+        display: none;
+        height: 600px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__success-cont {
+        padding-top: 80px;
+    }
+
+    &__thanks,
+    &__registered {
+        margin: 0;
+        padding: 30px;
+    }
+
+    &__thanks {
+        margin: 0;
+        padding: 30px;
+        @include mixins.font-size(40px);
+    }
+
+    &__registered {
+        padding: 30px;
+        @include mixins.font-size(35px);
+        font-weight: 400;
+    }
+
+    &__btn {
+
     }
 }
