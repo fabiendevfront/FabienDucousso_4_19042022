@@ -4,6 +4,7 @@ Module for responsive menu
 
 // DOM Element
 const navDisplay = document.getElementById("myNav");
+const menuIcon = document.querySelector(".header__icon")
 
 // Add class for menu responsive that display or hide the menu
 function displayNav() {
@@ -15,4 +16,4 @@ function displayNav() {
 }
 
 // Display/hide nav on small-screen when clicking on menu icon with "displayNav" function
-document.getElementById("menuIcon").onclick = displayNav;
+menuIcon.addEventListener('click', displayNav);
