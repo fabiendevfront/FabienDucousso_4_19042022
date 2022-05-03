@@ -6,13 +6,13 @@
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 2000;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: variables.$bg-modal;
 
     @include mixins.small-screen {
-        top: 80px;
         background-color: transparent;
     }
 
@@ -23,10 +23,13 @@
         background-color: variables.$bg-dark;
         border-radius: 8px;
         overflow: hidden;
-        padding-top: 10px;
         margin: 5% auto;
         animation: open-modal 0.8s;
         color: variables.$white;
+
+        @include mixins.small-screen {
+            margin: 110px auto 5% auto;
+        }
     }
 
     &__close {

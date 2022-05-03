@@ -2,35 +2,11 @@
 @use '../abstracts/mixins';
 
 .form-comp {
-
-    &__group {
-        margin-top: 15px;
-
-        // [data-error]::after {
-        //     content: attr(data-error);
-        //     font-size: 0.4em;
-        //     color: #e54858;
-        //     display: block;
-        //     margin-top: 7px;
-        //     margin-bottom: 7px;
-        //     text-align: right;
-        //     line-height: 0.3;
-        //     opacity: 0;
-        //     transition: 0.3s;
-        // }
-
-        // [data-error-visible="true"]::after {
-        //     opacity: 1;
-        // }
-
-        // [data-error-visible="true"] .text-control {
-        //     border: 2px solid #e54858;
-        // }
-    }
+    padding-top: 25px;
 
     &__input {
         padding: 8px;
-        border: 0.8px solid darken(variables.$white, 20);
+        border: 2px solid darken(variables.$white, 20);
         outline: none;
 
         &--text {
@@ -57,12 +33,17 @@
                 background-color: variables.$checkbox-color;
             }
         }
+
+        &--error {
+            border-width: 2px;
+            border-color: variables.$primary-color;
+        }
     }
 
     &__label {
         display: inline-block;
         @include mixins.font-size(16px);
-        margin: 15px 0 8px 0;
+        margin: 5px 0 6px 0;
 
         &--checkbox {
             position: relative;
@@ -71,6 +52,18 @@
             font-weight: normal;
             text-indent: 29px;
         }
+    }
+
+    abbr {
+        text-decoration: none;
+    }
+
+    &__error {
+        font-family: variables.$font-secondary;
+        color: variables.$primary-color;
+        @include mixins.font-size(13px);
+        margin: 5px 0 0 0;
+        height: 18px;
     }
 
     &__checkbox-icon {
