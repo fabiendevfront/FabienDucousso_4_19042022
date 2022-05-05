@@ -1,10 +1,17 @@
 /*
-Module for responsive menu
+* Responsive menu
 */
 
-// DOM Element
+/* ======================
+   DOM elements selection
+   ====================== */
+
 const navDisplay = document.getElementById("myNav");
-const menuIcon = document.querySelector(".header__icon")
+const menuIcon = document.querySelector(".header__icon");
+
+/* ===================
+   Display & hide menu
+   =================== */
 
 // Add class for menu responsive that display or hide the menu
 function displayNav() {

@@ -1,8 +1,11 @@
 /*
-Module for display and hide modal
+* Display and hide modal
 */
 
-// DOM elements selection
+/* ======================
+   DOM elements selection
+   ====================== */
+
 const modalItem = document.querySelector(".modal");
 const modalContainer = document.querySelector(".modal__container");
 const modalBtn = document.querySelector(".hero__btn");
@@ -13,7 +16,9 @@ const formItem = document.querySelector(".form-comp");
 const successBtn = document.querySelector(".modal__btn");
 const modalSuccess = document.querySelector(".modal__success");
 
-/* Display modal */
+/* =============
+   Display modal
+   ============= */
 
 // Add style display block that display the modal
 function displayModal() {
@@ -25,7 +30,9 @@ function displayModal() {
 // Display modal when clicking on button "Je m'inscris" with "displayModal" function
 modalBtn.addEventListener('click', displayModal);
 
-/* Hide modal */
+/* ==========
+   Hide modal
+   ========== */
 
 // Add style "display none" that hide the modal
 function hideModal() {
@@ -51,20 +58,21 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-/* Success modal */
+// /* =============
+//    Success modal
+//    ============= */
 
-// Deletes the form and inject the html of the success modal
-function successModal() {
-    formItem.style.display = "none";
-    modalSuccess.style.display = "flex";
-}
+// // Deletes the form and inject the html of the success modal
+// function successModal() {
+//     formItem.style.display = "none";
+//     modalSuccess.style.display = "flex";
+// }
 
-// Open succes modal when clicking on button "C'est parti" with "successModal" function
-validBtn.addEventListener('click', function(event) {
-    event.preventDefault();
-    successModal();
-});
+// // Open succes modal when clicking on button "C'est parti" with "successModal" function
+// validBtn.addEventListener('click', function(event) {
+//     event.preventDefault();
+//     successModal();
+// });
 
-
-// Hide modal when clicking on success modal button "fermer" with "hideModal" function
-successBtn.addEventListener('click', hideModal);
+// // Hide modal when clicking on success modal button "fermer" with "hideModal" function
+// successBtn.addEventListener('click', hideModal);

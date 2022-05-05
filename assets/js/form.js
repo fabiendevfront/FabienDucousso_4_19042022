@@ -1,8 +1,11 @@
 /*
-Module for registration form
+* Registration form
 */
 
-/* DOM elements selection */
+/* ======================
+   DOM elements selection
+   ====================== */
+
 const inputFirst = document.getElementById("first");
 const errorFirst = document.querySelector("#first + p");
 const inputLast = document.getElementById("last");
@@ -13,28 +16,36 @@ const inputBirth = document.getElementById("birthDate");
 const errorBirth = document.querySelector("#birthDate + p");
 const inputTournament = document.getElementById("nbTournament");
 const errorTournament = document.querySelector("#nbTournament + p");
-const inputRadioLocation = document.querySelectorAll("input[name='location']");
+const inputRadioLocation = document.querySelector("input[name=location]:checked");
 const errorLocation = document.querySelector(".form-comp__error-location");
-const checkboxTerms = document.getElementById("terms");
+const checkboxTerms = document.querySelector("input[name=terms]:checked");
 const errorTerms = document.querySelector("#terms + p");
+const validationBtn = document.querySelector(".form-comp__btn");
+
+/* =======
+   Objects
+   ======= */
 
 /* Errors messages */
-const firstMsgError = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
-const lastMsgError = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-const emailMsgError = "Veuillez renseigner un email valide";
-const birthMsgError = "Veuillez indiquer une date valide";
-const tournamentMsgError = "Veuillez renseigner un nombre de participation";
-const locationMsgError = "Veuillez choisir une ville";
-const termsMsgError = "Veuillez accepter les conditions d'utilisation";
+const errorMsg = {
+    name: "Deux caractères ou plus, sans espace, chiffre ou caractère spécial",
+    email: "Veuillez renseigner un email valide",
+    birth: "Veuillez indiquer une date valide",
+    tournament: "Veuillez renseigner un nombre de participation (de 0 à 99)",
+    location: "Veuillez choisir une ville",
+    terms: "Veuillez accepter les conditions d'utilisation"
+};
 
 /* Regex patterns object for inputs test */
 const regexPatterns = {
-    name: /^[a-]{2,25}$/i,
+    name: /^[a-z]{2,25}$/i,
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
     tournament: /^[0-9]{1,2}$/
   };
 
-/* Functions for check if inputs values is valid */
+/* =============================================
+   Functions for check if inputs values is valid
+   ============================================= */
 
 // Check if first & last name is valid with regex pattern
 function isValidName(name) {
@@ -72,71 +83,96 @@ function isValidNbTournament(number) {
     return regexPatterns.tournament.test(number);
 };
 
+/* ===================================================
+   Functions for display/hide error classe and message
+   =================================================== */
 
-/* Functions for display/hide errors classes ands message */
-
-// Display/hide errors classes ands message for input first name
-function testFirstName(input, error) {
-    if (isValidName(input.value) === false) {
+// Display/hide error classe and message for input first and last name
+function testName(input, error) {
+    if (!isValidName(input.value)) {
         input.classList.add("form-comp__input--error");
-        error.textContent = firstMsgError;
+        error.textContent = errorMsg.name;
     } else {
         input.classList.remove("form-comp__input--error");
         error.textContent = "";
     }
 };
 
-// Display/hide errors classes ands message for input last name
-function testLastName(input, error) {
-    if (isValidName(input.value) === false) {
-        input.classList.add("form-comp__input--error");
-        error.textContent = lastMsgError;
-    } else {
-        input.classList.remove("form-comp__input--error");
-        error.textContent = "";
-    }
-};
-
+// Display/hide error classe and message for input email
 function testEmail(input, error) {
-    if (isValidEmail(input.value) === false) {
+    if (!isValidEmail(input.value)) {
         input.classList.add("form-comp__input--error");
-        error.textContent = emailMsgError;
+        error.textContent = errorMsg.email;
     } else {
         input.classList.remove("form-comp__input--error");
         error.textContent = "";
     }
 };
 
+// Display/hide error message for input date
 function testDate(input, error) {
-    if (isValidDate(input) === false) {
+    if (!isValidDate(input)) {
         input.classList.add("form-comp__input--error");
-        error.textContent = birthMsgError;
+        error.textContent = errorMsg.birth;
     } else {
         input.classList.remove("form-comp__input--error");
         error.textContent = "";
     }
 };
 
-function testNbTournament (input, error) {
-    if (isValidNbTournament(input.value) === false) {
+// Display/hide error classe and message for input tournament
+function testNbTournament(input, error) {
+    if (!isValidNbTournament(input.value)) {
         input.classList.add("form-comp__input--error");
-        error.textContent = tournamentMsgError;
+        error.textContent = errorMsg.tournament;
     } else {
         input.classList.remove("form-comp__input--error");
         error.textContent = "";
     }
-}
+};
 
-/* Inputs events */
+// Display/hide error message for input city
+function testCity(input, error) {
+    if (input === null) {
+        error.textContent = errorMsg.location;
+    } else {
+        error.textContent = "";
+    }
+};
+
+// Display/hide error message for input city
+function testTerms(input, error) {
+    if (input === null) {
+        error.textContent = errorMsg.terms;
+    } else {
+        error.textContent = "";
+    }
+};
+
+/* ===============
+   Form validation
+   =============== */
+
+function formValidation() {
+    console.log("validation du formulaire ok")
+};
+
+validationBtn.addEventListener('submit', function() {
+    testName(inputFirst, errorFirst);
+});
+
+/* =============
+   Inputs events
+   ============= */
 
 // Execute function "testFirstName" when a user writes something in input "Prénom"
 inputFirst.addEventListener('input', function() {
-    testFirstName(inputFirst, errorFirst);
+    testName(inputFirst, errorFirst);
 });
 
 // Execute function "testLastName" when a user writes something in input "Nom"
 inputLast.addEventListener('input', function() {
-    testLastName(inputLast, errorLast);
+    testName(inputLast, errorLast);
 });
 
 // Execute function "testEmail" when a user writes something in input "E-mail"
