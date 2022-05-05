@@ -67,6 +67,11 @@ function isValidDate(date) {
     }
 };
 
+// Check if number tournament is valid with regex pattern
+function isValidNbTournament(number) {
+    return regexPatterns.tournament.test(number);
+};
+
 
 /* Functions for display/hide errors classes ands message */
 
@@ -112,6 +117,16 @@ function testDate(input, error) {
     }
 };
 
+function testNbTournament (input, error) {
+    if (isValidNbTournament(input.value) === false) {
+        input.classList.add("form-comp__input--error");
+        error.textContent = tournamentMsgError;
+    } else {
+        input.classList.remove("form-comp__input--error");
+        error.textContent = "";
+    }
+}
+
 /* Inputs events */
 
 // Execute function "testFirstName" when a user writes something in input "Prénom"
@@ -129,12 +144,17 @@ inputEmail.addEventListener('input', function(){
     testEmail(inputEmail, errorEmail);
 });
 
-// Execute function "testEmail" when a user writes something in input "E-mail"
+// Execute function "testDate" when a user writes something in input "Date de naissance"
 inputBirth.addEventListener("input", function() {
     testDate(inputBirth, errorBirth);
 });
 
-// Execute function "testEmail" when a user writes something in input "E-mail"
+// Execute function "testDate" when a user focus date picker in input "Date de naissance"
 inputBirth.addEventListener("focusout", function() {
     testDate(inputBirth, errorBirth);
+});
+
+// Execute function "testNbTournament" when a user writes something in input "À combien de tournois.."
+inputTournament.addEventListener('input', function() {
+    testNbTournament(inputTournament, errorTournament);
 });
