@@ -49,18 +49,9 @@ function isValidEmail(email) {
 // Check if the date is valid and less than the current date
 function compareDate(date) {
     let dateNow = new Date();
-    let day = dateNow.getDate();
-    let month = (dateNow.getMonth()+1);
-    let year = dateNow.getFullYear();
-    dateNow = day+"-"+month+"-"+year;
-    console.log(dateNow);
-
     let birthDate = new Date(date);
-    let birthDateDay = birthDate.getDate();
-    let birthDateMonth = (birthDate.getMonth()+1);
-    let birthDateYear = birthDate.getFullYear();
-    birthDate = birthDateDay+"-"+birthDateMonth+"-"+birthDateYear;
-    console.log(birthDate);
+
+    console.log(dateNow < birthDate);
 
     if (dateNow < birthDate) {
         return false;

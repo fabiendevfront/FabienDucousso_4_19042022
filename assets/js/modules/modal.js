@@ -29,7 +29,6 @@ modalBtn.addEventListener('click', displayModal);
 
 // Add style "display none" that hide the modal
 function hideModal() {
-    console.log("fermeture de la modale")
     modalItem.style.display = "none";
 }
 
@@ -47,8 +46,7 @@ modalItem.addEventListener('click', hideModal);
 
 // Hide modal when clicking on "echap key" with "hideModal" function
 document.addEventListener('keydown', function(event) {
-    if (event.code == 'Escape' && modalItem.style.display == "block") {
-        console.log(modalItem.style.display);
+    if (event.code == 'Escape') {
         hideModal();
     }
 });
@@ -59,8 +57,6 @@ document.addEventListener('keydown', function(event) {
 function successModal() {
     formItem.style.display = "none";
     modalSuccess.style.display = "flex";
-    // modalBody.removeChild(formItem);
-    // modalBody.innerHTML = `<div class="modal__success"><div class="modal__success-cont"><p class="modal__thanks">Merci pour votre inscription !</p> <p class="modal__registered">Votre réservation a été reçue.</p></div><button class="modal__btn btn btn--modal">Fermer</button>`;
 }
 
 // Open succes modal when clicking on button "C'est parti" with "successModal" function
