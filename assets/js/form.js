@@ -29,7 +29,7 @@ const termsMsgError = "Veuillez accepter les conditions d'utilisation";
 
 /* Regex patterns object for inputs test */
 const regexPatterns = {
-    name: /^[a-z]{2,25}$/i,
+    name: /^[a-]{2,25}$/i,
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
     tournament: /^[0-9]{1,2}$/
   };
@@ -46,27 +46,23 @@ function isValidEmail(email) {
     return regexPatterns.email.test(email);
 };
 
-// Check if the date is valid and less than the current date
+// Check if the date less than the current date
 function compareDate(date) {
     let dateNow = new Date();
     let birthDate = new Date(date);
 
-    console.log(dateNow < birthDate);
-
     if (dateNow < birthDate) {
-        return false;
+        return true;
     }
-}
+};
 
+// Check if the date is valid
 function isValidDate(date) {
     if (date.value === "") {
-        console.log("champ vide");
         return false;
     } else if (compareDate(date.value)) {
-        console.log("Date doit être inférieure");
         return false;
     } else {
-        console.log("date ok");
         return true;
     }
 };
