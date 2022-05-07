@@ -6,31 +6,9 @@
    DOM elements selection
    ====================== */
 
-const inputFirst = document.getElementById("first");
-const errorFirst = document.querySelector("#first + p");
-const inputLast = document.getElementById("last");
-const errorLast = document.querySelector("#last + p");
-const inputEmail = document.getElementById("email");
-const errorEmail = document.querySelector("#email + p");
-const inputBirth = document.getElementById("birthDate");
-const errorBirth = document.querySelector("#birthDate + p");
-const inputTournament = document.getElementById("nbTournament");
-const errorTournament = document.querySelector("#nbTournament + p");
-const allCitiesInputs = document.querySelectorAll("input[name=location]");
-const containerCities = document.querySelector(".form-comp__city-items")
-const errorCities = document.querySelector(".form-comp__error-location");
-const inputTerms = document.getElementById("terms");
-const errorTerms = document.querySelector(".form-comp__error-terms");
-const allInputs = document.querySelectorAll(".form-comp__input--text");
-const allCheckbox = document.querySelectorAll(".form-comp__input--checkbox");
-
-/* ======================
-   DOM elements selection
-   ====================== */
-
-// Object that contains the selection in the DOM of the inputs
+// Object contain DOM selection of inputs
 const formInputs = {
-    first: document.querySelectorAll("#first"),
+    first: document.getElementById("first"),
     last: document.getElementById("last"),
     email: document.getElementById("email"),
     birth: document.getElementById("birthDate"),
@@ -41,7 +19,7 @@ const formInputs = {
     allCheckbox: document.querySelectorAll(".form-comp__input--checkbox")
 };
 
-// Area where error displayed of each input
+// Object contain Dom selection of areas where error displayed of each input
 const errorArea = {
     first: document.querySelector("#first + p"),
     last: document.querySelector("#last + p"),
@@ -49,14 +27,15 @@ const errorArea = {
     birth: document.querySelector("#birthDate + p"),
     tournament: document.querySelector("#nbTournament + p"),
     cities: document.querySelector(".form-comp__error-location"),
+    citiesCont: document.querySelector(".form-comp__city-items"),
     terms: document.querySelector(".form-comp__error-terms")
 }
 
-/* =======
-   Objects
-   ======= */
+/* =====================================
+   Objects for Regex and errors messages
+   ===================================== */
 
-// Errors messages
+// Object contain the errors messages
 const errorMsg = {
     name: "Deux caractères ou plus, sans espace, chiffre ou caractère spécial",
     email: "Veuillez renseigner un email valide",
@@ -66,7 +45,7 @@ const errorMsg = {
     terms: "Veuillez accepter les conditions d'utilisation"
 };
 
-// Regex patterns object for inputs test
+// Object contain regex for inputs test
 const regexPatterns = {
     name: /^[a-z]{2,25}$/i,
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
@@ -176,7 +155,7 @@ function testNbTournament(input, error) {
     }
 };
 
-// Display/hide error message for input city
+// Display/hide error classe and message for input city
 function testCity(allCities, container, error) {
     if (!isValidCity(allCities)) {
         container.classList.add("form-comp__city-items--error");
@@ -200,30 +179,34 @@ function testTerms(input, error) {
    Form validation
    =============== */
 
+/* Check if all form values is valid on submit:
+If not valid: validation is false and display errors messages
+If valid: display success modal and remove all values form
+*/
 function formValidation() {
     let validation;
 
-    if (!isValidName(inputFirst.value)) {
+    if (!isValidName(formInputs.first.value)) {
         validation = false;
-        testName(inputFirst, errorFirst);
-    } else if (!isValidName(inputLast.value)) {
+        testName(formInputs.first, errorArea.first);
+    } else if (!isValidName(formInputs.last.value)) {
         validation = false;
-        testName(inputLast, errorLast);
-    } else if (!isValidEmail(inputEmail.value)) {
+        testName(formInputs.last, errorArea.last);
+    } else if (!isValidEmail(formInputs.email.value)) {
         validation = false;
-        testEmail(inputEmail, errorEmail);
-    } else if (!isValidDate(inputBirth.value)) {
+        testEmail(formInputs.email, errorArea.email);
+    } else if (!isValidDate(formInputs.birth.value)) {
         validation = false;
-        testDate(inputBirth, errorBirth);
-    } else if (!isValidNbTournament(inputTournament.value)) {
+        testDate(formInputs.birth, errorArea.birth);
+    } else if (!isValidNbTournament(formInputs.tournament.value)) {
         validation = false;
-        testNbTournament(inputTournament, errorTournament);
-    } else if (!isValidCity(allCitiesInputs)) {
+        testNbTournament(formInputs.tournament, errorArea.tournament);
+    } else if (!isValidCity(formInputs.allCities)) {
         validation = false;
-        testCity(allCitiesInputs, containerCities, errorCities);
-    } else if (!inputTerms.checked) {
+        testCity(formInputs.allCities, errorArea.citiesCont, errorArea.cities);
+    } else if (!formInputs.terms.checked) {
         validation = false;
-        testTerms(inputTerms, errorTerms);
+        testTerms(formInputs.terms, errorArea.terms);
     } else {
         validation = true;
     };
@@ -234,17 +217,22 @@ function formValidation() {
     };
 };
 
+/* Event on form submit:
+Disable default comportement of submit
+Launch form validation function
+*/
 formItem.addEventListener('submit', function(event) {
     event.preventDefault();
     formValidation();
 });
 
+// Remove all values in inputs text, radio, checkbox
 function removeAllValues() {
-    allInputs.forEach((input) => {
+    formInputs.allInputs.forEach((input) => {
         input.value = "";
     });
 
-    allCheckbox.forEach((checkbox) => {
+    formInputs.allCheckbox.forEach((checkbox) => {
         checkbox.checked = false;
     });
 };
@@ -253,73 +241,41 @@ function removeAllValues() {
    Inputs events
    ============= */
 
+// Assign events functions to the inputs. Events execute test functions when user writes something in inputs text.
 formInputs.allInputs.forEach((input) => {
     input.addEventListener("input", (event) =>{
         if (event.target.id === "first") {
-            testName(inputFirst, errorFirst);
+            testName(formInputs.first, errorArea.first);
         } else if (event.target.id === "last") {
-            testName(inputLast, errorLast);
+            testName(formInputs.last, errorArea.last);
         } else if (event.target.id === "email") {
-            testEmail(inputEmail, errorEmail);
+            testEmail(formInputs.email, errorArea.email);
         } else if (event.target.id === "birth") {
-            testDate(inputBirth, errorBirth);
+            testDate(formInputs.birth, errorArea.birth);
         } else if (event.target.id === "tournament") {
-            testNbTournament(inputTournament, errorTournament);
+            testNbTournament(formInputs.tournament, errorArea.tournament);
         }
     });
 });
 
-// for (const func in formInputs.allInputs) {
-//     const textInput = formInputs.allInputs[func];
-//     console.log(textInput);
-//     textInput.addEventListener("input", (event) => {
-//         if (event.target.id === "first") {
-//             console.log(event.target.id); 
-//         }
-//     });
-// }
-
-// // Execute function "testFirstName" when a user writes something in input "Prénom"
-// inputFirst.addEventListener('input', function() {
-//     testName(inputFirst, errorFirst);
-// });
-
-// // Execute function "testLastName" when a user writes something in input "Nom"
-// inputLast.addEventListener('input', function() {
-//     testName(inputLast, errorLast);
-// });
-
-// // Execute function "testEmail" when a user writes something in input "E-mail"
-// inputEmail.addEventListener('input', function(){
-//     testEmail(inputEmail, errorEmail);
-// });
-
-// // Execute function "testDate" when a user writes something in input "Date de naissance"
-// inputBirth.addEventListener('input', function() {
-//     testDate(inputBirth, errorBirth);
-// });
-
-// Execute function "testDate" when a user focus date picker in input "Date de naissance"
-inputBirth.addEventListener('focusout', function() {
-    testDate(inputBirth, errorBirth);
+// Execute function "testDate" when user focus date picker in input "Date de naissance"
+formInputs.birth.addEventListener('focusout', function() {
+    testDate(formInputs.birth, errorArea.birth);
 });
 
-// // Execute function "testNbTournament" when a user writes something in input "À combien de tournois.."
-// inputTournament.addEventListener('input', function() {
-//     testNbTournament(inputTournament, errorTournament);
-// });
-
-allCitiesInputs.forEach((input) =>
+// Remove error classe & message if user select a city after failed submit
+formInputs.allCities.forEach((input) =>
     input.addEventListener('change', () => {
         const btnCheck = input.checked;
 
         if (btnCheck !== null) {
-            containerCities.classList.remove("form-comp__city-items--error");
-            errorCities.textContent = "";
+            errorArea.citiesCont.classList.remove("form-comp__city-items--error");
+            errorArea.cities.textContent = "";
         }
     })
 );
 
-inputTerms.addEventListener('change', () => {
-    testTerms(inputTerms, errorTerms);
+// Execute function "testTerms" when user check/uncheck "Conditions d'utilisation" checkbox
+formInputs.terms.addEventListener('change', () => {
+    testTerms(formInputs.terms, errorArea.terms);
 });
