@@ -21,19 +21,40 @@ const containerCities = document.querySelector(".form-comp__city-items")
 const errorCities = document.querySelector(".form-comp__error-location");
 const inputTerms = document.getElementById("terms");
 const errorTerms = document.querySelector(".form-comp__error-terms");
+const allInputs = document.querySelectorAll(".form-comp__input--text");
+const allCheckbox = document.querySelectorAll(".form-comp__input--checkbox");
+
+/* ======================
+   DOM elements selection
+   ====================== */
+
+// Object that contains the selection in the DOM of the inputs
+const formInputs = {
+    first: document.querySelectorAll("#first"),
+    last: document.getElementById("last"),
+    email: document.getElementById("email"),
+    birth: document.getElementById("birthDate"),
+    tournament: document.getElementById("nbTournament"),
+    allCities: document.querySelectorAll("input[name=location]"),
+    terms: document.getElementById("terms"),
+    allInputs: document.querySelectorAll(".form-comp__input--text"),
+    allCheckbox: document.querySelectorAll(".form-comp__input--checkbox")
+};
+
+// Area where error displayed of each input
+const errorArea = {
+    first: document.querySelector("#first + p"),
+    last: document.querySelector("#last + p"),
+    email: document.querySelector("#email + p"),
+    birth: document.querySelector("#birthDate + p"),
+    tournament: document.querySelector("#nbTournament + p"),
+    cities: document.querySelector(".form-comp__error-location"),
+    terms: document.querySelector(".form-comp__error-terms")
+}
 
 /* =======
    Objects
    ======= */
-
-// Form inputs
-const formInputs = {
-    first: document.getElementById("first"),
-    last: document.getElementById("last"),
-    email: document.getElementById("email"),
-    birth: document.getElementById("birthDate"),
-    tournament: document.getElementById("nbTournament")
-};
 
 // Errors messages
 const errorMsg = {
@@ -175,8 +196,6 @@ function testTerms(input, error) {
     }
 };
 
-// console.log(testTerms(inputTerms, errorTerms))
-
 /* ===============
    Form validation
    =============== */
@@ -221,9 +240,6 @@ formItem.addEventListener('submit', function(event) {
 });
 
 function removeAllValues() {
-    const allInputs = document.querySelectorAll(".form-comp__input--text");
-    const allCheckbox = document.querySelectorAll(".form-comp__input--checkbox");
-
     allInputs.forEach((input) => {
         input.value = "";
     });
@@ -237,35 +253,61 @@ function removeAllValues() {
    Inputs events
    ============= */
 
-// Execute function "testFirstName" when a user writes something in input "Prénom"
-inputFirst.addEventListener('input', function() {
-    testName(inputFirst, errorFirst);
+formInputs.allInputs.forEach((input) => {
+    input.addEventListener("input", (event) =>{
+        if (event.target.id === "first") {
+            testName(inputFirst, errorFirst);
+        } else if (event.target.id === "last") {
+            testName(inputLast, errorLast);
+        } else if (event.target.id === "email") {
+            testEmail(inputEmail, errorEmail);
+        } else if (event.target.id === "birth") {
+            testDate(inputBirth, errorBirth);
+        } else if (event.target.id === "tournament") {
+            testNbTournament(inputTournament, errorTournament);
+        }
+    });
 });
 
-// Execute function "testLastName" when a user writes something in input "Nom"
-inputLast.addEventListener('input', function() {
-    testName(inputLast, errorLast);
-});
+// for (const func in formInputs.allInputs) {
+//     const textInput = formInputs.allInputs[func];
+//     console.log(textInput);
+//     textInput.addEventListener("input", (event) => {
+//         if (event.target.id === "first") {
+//             console.log(event.target.id); 
+//         }
+//     });
+// }
 
-// Execute function "testEmail" when a user writes something in input "E-mail"
-inputEmail.addEventListener('input', function(){
-    testEmail(inputEmail, errorEmail);
-});
+// // Execute function "testFirstName" when a user writes something in input "Prénom"
+// inputFirst.addEventListener('input', function() {
+//     testName(inputFirst, errorFirst);
+// });
 
-// Execute function "testDate" when a user writes something in input "Date de naissance"
-inputBirth.addEventListener('input', function() {
-    testDate(inputBirth, errorBirth);
-});
+// // Execute function "testLastName" when a user writes something in input "Nom"
+// inputLast.addEventListener('input', function() {
+//     testName(inputLast, errorLast);
+// });
+
+// // Execute function "testEmail" when a user writes something in input "E-mail"
+// inputEmail.addEventListener('input', function(){
+//     testEmail(inputEmail, errorEmail);
+// });
+
+// // Execute function "testDate" when a user writes something in input "Date de naissance"
+// inputBirth.addEventListener('input', function() {
+//     testDate(inputBirth, errorBirth);
+// });
 
 // Execute function "testDate" when a user focus date picker in input "Date de naissance"
 inputBirth.addEventListener('focusout', function() {
     testDate(inputBirth, errorBirth);
 });
 
-// Execute function "testNbTournament" when a user writes something in input "À combien de tournois.."
-inputTournament.addEventListener('input', function() {
-    testNbTournament(inputTournament, errorTournament);
-});
+// // Execute function "testNbTournament" when a user writes something in input "À combien de tournois.."
+// inputTournament.addEventListener('input', function() {
+//     testNbTournament(inputTournament, errorTournament);
+// });
 
 allCitiesInputs.forEach((input) =>
     input.addEventListener('change', () => {
