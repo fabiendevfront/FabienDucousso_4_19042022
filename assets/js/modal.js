@@ -7,14 +7,13 @@
    ====================== */
 
 const modalItem = document.querySelector(".modal");
+const modalBody = document.querySelector(".modal__body");
 const modalContainer = document.querySelector(".modal__container");
 const modalBtn = document.querySelector(".hero__btn");
-const closeBtn = document.querySelector(".modal__close")
-const validBtn = document.querySelector(".form-comp__btn");
-const modalBody = document.querySelector(".modal__body");
-const formItem = document.querySelector(".form-comp");
+const closeBtn = document.querySelector(".modal__close");
 const successBtn = document.querySelector(".modal__btn");
 const modalSuccess = document.querySelector(".modal__success");
+const formItem = document.querySelector(".form-comp");
 
 /* =============
    Display modal
@@ -58,21 +57,15 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// /* =============
-//    Success modal
-//    ============= */
+/* =============
+   Success modal
+   ============= */
 
-// // Deletes the form and inject the html of the success modal
-// function successModal() {
-//     formItem.style.display = "none";
-//     modalSuccess.style.display = "flex";
-// }
+// Deletes the form and inject the html of the success modal
+function displaySuccessModal() {
+    formItem.style.display = "none";
+    modalSuccess.style.display = "flex";
+};
 
-// // Open succes modal when clicking on button "C'est parti" with "successModal" function
-// validBtn.addEventListener('click', function(event) {
-//     event.preventDefault();
-//     successModal();
-// });
-
-// // Hide modal when clicking on success modal button "fermer" with "hideModal" function
-// successBtn.addEventListener('click', hideModal);
+// Hide modal when clicking on success modal button "fermer" with "hideModal" function
+successBtn.addEventListener('click', hideModal);

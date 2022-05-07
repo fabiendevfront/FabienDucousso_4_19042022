@@ -50,7 +50,6 @@
                                 type="text"
                                 id="first"
                                 name="first"
-                                minlength="2"
                             />
                             <p class="form-comp__error"></p>
                         </div>
@@ -91,8 +90,6 @@
                                 type="number"
                                 id="nbTournament"
                                 name="nbTournament"
-                                min="0"
-                                max="99"
                             />
                             <p class="form-comp__error"></p>
                         </div>
@@ -187,11 +184,11 @@
                                 id="terms"
                                 name="terms"
                             />
-                            <label class="form-comp__label form-comp__label--checkbox" for="terms">
+                            <label class="form-comp__label form-comp__label--checkbox form-comp__label--terms" for="terms">
                                 <span class="form-comp__checkbox-icon form-comp__checkbox-icon--square"></span>
                                 J'ai lu et accepté les conditions d'utilisation. <abbr title="Ce champ est obligatoire">*</abbr>
                             </label>
-                            <p class="form-comp__error"></p>
+                            <p class="form-comp__error-terms"></p>
                         </div>
                         <div class="form-comp__group">
                             <input

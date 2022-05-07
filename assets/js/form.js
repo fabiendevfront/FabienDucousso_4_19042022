@@ -16,17 +16,26 @@ const inputBirth = document.getElementById("birthDate");
 const errorBirth = document.querySelector("#birthDate + p");
 const inputTournament = document.getElementById("nbTournament");
 const errorTournament = document.querySelector("#nbTournament + p");
-const inputRadioLocation = document.querySelector("input[name=location]:checked");
-const errorLocation = document.querySelector(".form-comp__error-location");
-const checkboxTerms = document.querySelector("input[name=terms]:checked");
-const errorTerms = document.querySelector("#terms + p");
-const validationBtn = document.querySelector(".form-comp__btn");
+const allCitiesInputs = document.querySelectorAll("input[name=location]");
+const containerCities = document.querySelector(".form-comp__city-items")
+const errorCities = document.querySelector(".form-comp__error-location");
+const inputTerms = document.getElementById("terms");
+const errorTerms = document.querySelector(".form-comp__error-terms");
 
 /* =======
    Objects
    ======= */
 
-/* Errors messages */
+// Form inputs
+const formInputs = {
+    first: document.getElementById("first"),
+    last: document.getElementById("last"),
+    email: document.getElementById("email"),
+    birth: document.getElementById("birthDate"),
+    tournament: document.getElementById("nbTournament")
+};
+
+// Errors messages
 const errorMsg = {
     name: "Deux caractères ou plus, sans espace, chiffre ou caractère spécial",
     email: "Veuillez renseigner un email valide",
@@ -36,12 +45,12 @@ const errorMsg = {
     terms: "Veuillez accepter les conditions d'utilisation"
 };
 
-/* Regex patterns object for inputs test */
+// Regex patterns object for inputs test
 const regexPatterns = {
     name: /^[a-z]{2,25}$/i,
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
     tournament: /^[0-9]{1,2}$/
-  };
+};
 
 /* =============================================
    Functions for check if inputs values is valid
@@ -81,6 +90,21 @@ function isValidDate(date) {
 // Check if number tournament is valid with regex pattern
 function isValidNbTournament(number) {
     return regexPatterns.tournament.test(number);
+};
+
+// Check if city is selected
+function isValidCity(allCitiesInputs) {
+    let cityChecked = false;
+    allCitiesInputs.forEach((city) => {
+        if (city.checked) {
+            cityChecked = true;
+        }
+    });
+    if (cityChecked === true) {
+        return true;
+    } else {
+        return false;
+    }
 };
 
 /* ===================================================
@@ -132,34 +156,82 @@ function testNbTournament(input, error) {
 };
 
 // Display/hide error message for input city
-function testCity(input, error) {
-    if (input === null) {
+function testCity(allCities, container, error) {
+    if (!isValidCity(allCities)) {
+        container.classList.add("form-comp__city-items--error");
         error.textContent = errorMsg.location;
     } else {
+        container.classList.remove("form-comp__city-items--error");
         error.textContent = "";
     }
 };
 
-// Display/hide error message for input city
+// Display/hide error message for input terms
 function testTerms(input, error) {
-    if (input === null) {
+    if (!input.checked) {
         error.textContent = errorMsg.terms;
     } else {
         error.textContent = "";
     }
 };
 
+// console.log(testTerms(inputTerms, errorTerms))
+
 /* ===============
    Form validation
    =============== */
 
 function formValidation() {
-    console.log("validation du formulaire ok")
+    let validation;
+
+    if (!isValidName(inputFirst.value)) {
+        validation = false;
+        testName(inputFirst, errorFirst);
+    } else if (!isValidName(inputLast.value)) {
+        validation = false;
+        testName(inputLast, errorLast);
+    } else if (!isValidEmail(inputEmail.value)) {
+        validation = false;
+        testEmail(inputEmail, errorEmail);
+    } else if (!isValidDate(inputBirth.value)) {
+        validation = false;
+        testDate(inputBirth, errorBirth);
+    } else if (!isValidNbTournament(inputTournament.value)) {
+        validation = false;
+        testNbTournament(inputTournament, errorTournament);
+    } else if (!isValidCity(allCitiesInputs)) {
+        validation = false;
+        testCity(allCitiesInputs, containerCities, errorCities);
+    } else if (!inputTerms.checked) {
+        validation = false;
+        testTerms(inputTerms, errorTerms);
+    } else {
+        validation = true;
+    };
+
+    if (validation) {
+        displaySuccessModal();
+        removeAllValues();
+    };
 };
 
-validationBtn.addEventListener('submit', function() {
-    testName(inputFirst, errorFirst);
+formItem.addEventListener('submit', function(event) {
+    event.preventDefault();
+    formValidation();
 });
+
+function removeAllValues() {
+    const allInputs = document.querySelectorAll(".form-comp__input--text");
+    const allCheckbox = document.querySelectorAll(".form-comp__input--checkbox");
+
+    allInputs.forEach((input) => {
+        input.value = "";
+    });
+
+    allCheckbox.forEach((checkbox) => {
+        checkbox.checked = false;
+    });
+};
 
 /* =============
    Inputs events
@@ -181,16 +253,31 @@ inputEmail.addEventListener('input', function(){
 });
 
 // Execute function "testDate" when a user writes something in input "Date de naissance"
-inputBirth.addEventListener("input", function() {
+inputBirth.addEventListener('input', function() {
     testDate(inputBirth, errorBirth);
 });
 
 // Execute function "testDate" when a user focus date picker in input "Date de naissance"
-inputBirth.addEventListener("focusout", function() {
+inputBirth.addEventListener('focusout', function() {
     testDate(inputBirth, errorBirth);
 });
 
 // Execute function "testNbTournament" when a user writes something in input "À combien de tournois.."
 inputTournament.addEventListener('input', function() {
     testNbTournament(inputTournament, errorTournament);
+});
+
+allCitiesInputs.forEach((input) =>
+    input.addEventListener('change', () => {
+        const btnCheck = input.checked;
+
+        if (btnCheck !== null) {
+            containerCities.classList.remove("form-comp__city-items--error");
+            errorCities.textContent = "";
+        }
+    })
+);
+
+inputTerms.addEventListener('change', () => {
+    testTerms(inputTerms, errorTerms);
 });

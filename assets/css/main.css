@@ -580,22 +580,28 @@ a:hover {
 }
 .form-comp__label--checkbox {
   position: relative;
-  margin: 0 3rem 0.5rem 0;
+  margin: 0 45px 8px 0;
   font-size: 13px;
   font-size: 0.8125rem;
   font-weight: normal;
   text-indent: 29px;
 }
+.form-comp__label--terms {
+  margin-bottom: 3px;
+}
 .form-comp abbr {
   text-decoration: none;
 }
-.form-comp__error {
+.form-comp__error, .form-comp__error-location, .form-comp__error-terms {
   font-family: "Roboto", sans-serif;
   color: #fe142f;
   font-size: 13px;
   font-size: 0.8125rem;
   margin: 5px 0 0 0;
   height: 18px;
+}
+.form-comp__error-terms {
+  margin: 0;
 }
 .form-comp__checkbox-icon {
   display: inline-block;
@@ -653,6 +659,9 @@ a:hover {
   align-items: center;
   margin: 0;
   padding: 0;
+}
+.form-comp__city-items--error {
+  border: solid 2px #fe142f;
 }
 .form-comp__btn {
   display: block;
