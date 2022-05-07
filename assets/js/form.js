@@ -57,17 +57,17 @@ const regexPatterns = {
    ============================================= */
 
 // Check if first & last name is valid with regex pattern
-function isValidName(name) {
+const isValidName = (name) => {
     return regexPatterns.name.test(name);
 };
 
 // Check if email is valid with regex pattern
-function isValidEmail(email) {
+const isValidEmail = (email) => {
     return regexPatterns.email.test(email);
 };
 
 // Check if the date less than the current date
-function compareDate(date) {
+const compareDate = (date) => {
     let dateNow = new Date();
     let birthDate = new Date(date);
 
@@ -77,7 +77,7 @@ function compareDate(date) {
 };
 
 // Check if the date is valid
-function isValidDate(date) {
+const isValidDate = (date) => {
     if (date.value === "") {
         return false;
     } else if (compareDate(date.value)) {
@@ -88,12 +88,12 @@ function isValidDate(date) {
 };
 
 // Check if number tournament is valid with regex pattern
-function isValidNbTournament(number) {
+const isValidNbTournament = (number) => {
     return regexPatterns.tournament.test(number);
 };
 
 // Check if city is selected
-function isValidCity(allCitiesInputs) {
+const isValidCity = (allCitiesInputs) => {
     let cityChecked = false;
     allCitiesInputs.forEach((city) => {
         if (city.checked) {
@@ -112,7 +112,7 @@ function isValidCity(allCitiesInputs) {
    =================================================== */
 
 // Display/hide error classe and message for input first and last name
-function testName(input, error) {
+const testName = (input, error) => {
     if (!isValidName(input.value)) {
         input.classList.add("form-comp__input--error");
         error.textContent = errorMsg.name;
@@ -123,7 +123,7 @@ function testName(input, error) {
 };
 
 // Display/hide error classe and message for input email
-function testEmail(input, error) {
+const testEmail = (input, error) => {
     if (!isValidEmail(input.value)) {
         input.classList.add("form-comp__input--error");
         error.textContent = errorMsg.email;
@@ -134,7 +134,7 @@ function testEmail(input, error) {
 };
 
 // Display/hide error message for input date
-function testDate(input, error) {
+const testDate = (input, error) => {
     if (!isValidDate(input)) {
         input.classList.add("form-comp__input--error");
         error.textContent = errorMsg.birth;
@@ -145,7 +145,7 @@ function testDate(input, error) {
 };
 
 // Display/hide error classe and message for input tournament
-function testNbTournament(input, error) {
+const testNbTournament = (input, error) => {
     if (!isValidNbTournament(input.value)) {
         input.classList.add("form-comp__input--error");
         error.textContent = errorMsg.tournament;
@@ -156,7 +156,7 @@ function testNbTournament(input, error) {
 };
 
 // Display/hide error classe and message for input city
-function testCity(allCities, container, error) {
+const testCity = (allCities, container, error) => {
     if (!isValidCity(allCities)) {
         container.classList.add("form-comp__city-items--error");
         error.textContent = errorMsg.location;
@@ -167,7 +167,7 @@ function testCity(allCities, container, error) {
 };
 
 // Display/hide error message for input terms
-function testTerms(input, error) {
+const testTerms = (input, error) => {
     if (!input.checked) {
         error.textContent = errorMsg.terms;
     } else {
@@ -183,34 +183,37 @@ function testTerms(input, error) {
 If not valid: validation is false and display errors messages
 If valid: display success modal and remove all values form
 */
-function formValidation() {
-    let validation;
+const formValidation = () => {
+    let validation = true;
 
     if (!isValidName(formInputs.first.value)) {
         validation = false;
         testName(formInputs.first, errorArea.first);
-    } else if (!isValidName(formInputs.last.value)) {
+    };
+    if (!isValidName(formInputs.last.value)) {
         validation = false;
         testName(formInputs.last, errorArea.last);
-    } else if (!isValidEmail(formInputs.email.value)) {
+    };
+    if (!isValidEmail(formInputs.email.value)) {
         validation = false;
         testEmail(formInputs.email, errorArea.email);
-    } else if (!isValidDate(formInputs.birth.value)) {
+    };
+    if (!isValidDate(formInputs.birth)) {
         validation = false;
         testDate(formInputs.birth, errorArea.birth);
-    } else if (!isValidNbTournament(formInputs.tournament.value)) {
+    };
+    if (!isValidNbTournament(formInputs.tournament.value)) {
         validation = false;
         testNbTournament(formInputs.tournament, errorArea.tournament);
-    } else if (!isValidCity(formInputs.allCities)) {
+    };
+    if (!isValidCity(formInputs.allCities)) {
         validation = false;
         testCity(formInputs.allCities, errorArea.citiesCont, errorArea.cities);
-    } else if (!formInputs.terms.checked) {
+    };
+    if (!formInputs.terms.checked) {
         validation = false;
         testTerms(formInputs.terms, errorArea.terms);
-    } else {
-        validation = true;
     };
-
     if (validation) {
         displaySuccessModal();
         removeAllValues();
@@ -221,13 +224,13 @@ function formValidation() {
 Disable default comportement of submit
 Launch form validation function
 */
-formItem.addEventListener('submit', function(event) {
+formItem.addEventListener('submit', (event) => {
     event.preventDefault();
     formValidation();
 });
 
 // Remove all values in inputs text, radio, checkbox
-function removeAllValues() {
+const removeAllValues = () => {
     formInputs.allInputs.forEach((input) => {
         input.value = "";
     });
@@ -243,7 +246,7 @@ function removeAllValues() {
 
 // Assign events functions to the inputs. Events execute test functions when user writes something in inputs text.
 formInputs.allInputs.forEach((input) => {
-    input.addEventListener("input", (event) =>{
+    input.addEventListener("input", (event) => {
         if (event.target.id === "first") {
             testName(formInputs.first, errorArea.first);
         } else if (event.target.id === "last") {
@@ -259,7 +262,7 @@ formInputs.allInputs.forEach((input) => {
 });
 
 // Execute function "testDate" when user focus date picker in input "Date de naissance"
-formInputs.birth.addEventListener('focusout', function() {
+formInputs.birth.addEventListener('focusout', () => {
     testDate(formInputs.birth, errorArea.birth);
 });
 
