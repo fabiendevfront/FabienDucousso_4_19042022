@@ -45,10 +45,26 @@ const errorMsg = {
     terms: "Veuillez accepter les conditions d'utilisation"
 };
 
-// Object contain regex for inputs test
+/* Object contain regex for inputs test
+Regex name:
+* ^ = start of sequence
+* [a-z] = letters from a to z
+* {2,25} = must contain between 2 and 25 characters
+* $ = end of sequence
+* i = case insensitive
+Regex email:
+* () = group
+* \d = numbers from 0 to 9
+* [._-] = accepts special characters . _ -
+* ? = zero or one occurrence
+* * = zero or multiple occurrences
+* \. = escaping the . symbol so that it is interpreted and searched in the chain
+Regex tournament:
+* [0-9] = numbers from 0 to 9
+*/
 const regexPatterns = {
     name: /^[a-z]{2,25}$/i,
-    email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
+    email: /^[a-z\d]([._-]?[a-z\d])*@[a-z\d]([-.]?[a-z\d])*\.([a-z]{2,4})$/i,
     tournament: /^[0-9]{1,2}$/
 };
 
@@ -95,11 +111,13 @@ const isValidNbTournament = (number) => {
 // Check if city is selected
 const isValidCity = (allCitiesInputs) => {
     let cityChecked = false;
+
     allCitiesInputs.forEach((city) => {
         if (city.checked) {
             cityChecked = true;
         }
     });
+
     if (cityChecked === true) {
         return true;
     } else {
@@ -163,7 +181,7 @@ const testCity = (allCities, container, error) => {
     } else {
         container.classList.remove("form-comp__city-items--error");
         error.textContent = "";
-    }
+    };
 };
 
 // Display/hide error message for input terms
@@ -189,45 +207,36 @@ const formValidation = () => {
     if (!isValidName(formInputs.first.value)) {
         validation = false;
         testName(formInputs.first, errorArea.first);
-    };
+    }
     if (!isValidName(formInputs.last.value)) {
         validation = false;
         testName(formInputs.last, errorArea.last);
-    };
+    }
     if (!isValidEmail(formInputs.email.value)) {
         validation = false;
         testEmail(formInputs.email, errorArea.email);
-    };
+    }
     if (!isValidDate(formInputs.birth)) {
         validation = false;
         testDate(formInputs.birth, errorArea.birth);
-    };
+    }
     if (!isValidNbTournament(formInputs.tournament.value)) {
         validation = false;
         testNbTournament(formInputs.tournament, errorArea.tournament);
-    };
+    }
     if (!isValidCity(formInputs.allCities)) {
         validation = false;
         testCity(formInputs.allCities, errorArea.citiesCont, errorArea.cities);
-    };
+    }
     if (!formInputs.terms.checked) {
         validation = false;
         testTerms(formInputs.terms, errorArea.terms);
-    };
+    }
     if (validation) {
         displaySuccessModal();
         removeAllValues();
-    };
+    }
 };
-
-/* Event on form submit:
-Disable default comportement of submit
-Launch form validation function
-*/
-formItem.addEventListener('submit', (event) => {
-    event.preventDefault();
-    formValidation();
-});
 
 // Remove all values in inputs text, radio, checkbox
 const removeAllValues = () => {
@@ -239,6 +248,15 @@ const removeAllValues = () => {
         checkbox.checked = false;
     });
 };
+
+/* Event on form submit:
+Disable default comportement of submit
+Launch form validation function
+*/
+formItem.addEventListener('submit', (event) => {
+    event.preventDefault();
+    formValidation();
+});
 
 /* =============
    Inputs events
@@ -255,7 +273,7 @@ formInputs.allInputs.forEach((input) => {
             testEmail(formInputs.email, errorArea.email);
         } else if (event.target.id === "birth") {
             testDate(formInputs.birth, errorArea.birth);
-        } else if (event.target.id === "tournament") {
+        } else if (event.target.id === "nbTournament") {
             testNbTournament(formInputs.tournament, errorArea.tournament);
         }
     });
