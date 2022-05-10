@@ -20,7 +20,7 @@ const formItem = document.querySelector(".form-comp");
    ============= */
 
 // Add style display block that display the modal
-function displayModal() {
+const displayModal = () => {
     modalItem.style.display = "block";
     formItem.style.display = "block";
     modalSuccess.style.display = "none";
@@ -34,7 +34,7 @@ modalBtn.addEventListener('click', displayModal);
    ========== */
 
 // Add style "display none" that hide the modal
-function hideModal() {
+const hideModal = () => {
     modalItem.style.display = "none";
 }
 
@@ -43,7 +43,7 @@ closeBtn.addEventListener('click', hideModal);
 
 
 // Prevents current event propagating up in the DOM
-modalContainer.addEventListener('click', function(event) {
+modalContainer.addEventListener('click', (event) => {
     event.stopPropagation();
 });
 
@@ -51,7 +51,7 @@ modalContainer.addEventListener('click', function(event) {
 modalItem.addEventListener('click', hideModal);
 
 // Hide modal when clicking on "echap key" with "hideModal" function
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', (event) => {
     if (event.code == 'Escape') {
         hideModal();
     }
@@ -61,8 +61,8 @@ document.addEventListener('keydown', function(event) {
    Success modal
    ============= */
 
-// Deletes the form and inject the html of the success modal
-function displaySuccessModal() {
+// Hide the form and display the success modal on validation
+const displaySuccessModal = () => {
     formItem.style.display = "none";
     modalSuccess.style.display = "flex";
 };

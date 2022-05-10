@@ -14,7 +14,7 @@ const menuIcon = document.querySelector(".header__icon");
    =================== */
 
 // Add class for menu responsive that display or hide the menu
-function displayNav() {
+const displayNav = () => {
     if (navDisplay.className === "header__container") {
         navDisplay.className += " header__container--responsive";
     } else {
