@@ -47,6 +47,7 @@
 
         &--responsive {
             display: flex;
+            animation: open-menu 0.8s;
 
             + .header__icon {
                 @include mixins.font-size(20px);

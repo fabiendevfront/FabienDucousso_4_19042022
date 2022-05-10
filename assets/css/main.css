@@ -438,6 +438,9 @@ a:hover {
   }
 }
 
+/**************/
+/* KEYFRAMES */
+/*************/
 @keyframes open-modal {
   from {
     opacity: 0;
@@ -445,6 +448,31 @@ a:hover {
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes close-modal {
+  from {
+    opacity: 1;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes open-menu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes close-menu {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 /*****************/
@@ -460,11 +488,16 @@ a:hover {
   height: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
+  animation: close-modal 3s;
 }
 @media screen and (max-width: 992px) {
   .modal {
     background-color: transparent;
   }
+}
+.modal.active {
+  display: block;
+  animation: open-modal 0.8s;
 }
 .modal__container {
   position: relative;
@@ -612,7 +645,6 @@ a:hover {
   position: absolute;
   left: 0;
   top: 0;
-  transition: 0.3s;
 }
 .form-comp__checkbox-icon--round {
   border: 2px solid #c4c4c4;
@@ -744,6 +776,7 @@ a:hover {
 }
 .header__container--responsive {
   display: flex;
+  animation: open-menu 0.8s;
 }
 .header__container--responsive + .header__icon {
   font-size: 20px;

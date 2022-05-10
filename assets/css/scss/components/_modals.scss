@@ -11,9 +11,15 @@
     height: 100%;
     overflow: auto;
     background-color: variables.$bg-modal;
+    animation: close-modal 3s;
 
     @include mixins.small-screen {
         background-color: transparent;
+    }
+
+    &.active {
+        display: block;
+        animation: open-modal 0.8s;
     }
 
     &__container {
