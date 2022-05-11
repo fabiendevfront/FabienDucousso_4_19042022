@@ -453,10 +453,10 @@ a:hover {
 @keyframes close-modal {
   from {
     opacity: 1;
-    transform: translateY(-150px);
   }
   to {
     opacity: 0;
+    transform: translateY(-150px);
   }
 }
 @keyframes open-menu {
@@ -479,7 +479,14 @@ a:hover {
 /* FILES EXPORT */
 /****************/
 .modal {
-  display: none;
+  visibility: hidden;
+  transition: visibility 0.6s;
+}
+.modal.active {
+  visibility: visible;
+}
+.modal__overlay {
+  opacity: 0;
   position: fixed;
   left: 0;
   top: 0;
@@ -488,16 +495,16 @@ a:hover {
   height: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
-  animation: close-modal 3s;
+  transition: opacity 0.4s 0.2s ease-out;
 }
 @media screen and (max-width: 992px) {
-  .modal {
+  .modal__overlay {
     background-color: transparent;
   }
 }
-.modal.active {
-  display: block;
-  animation: open-modal 0.8s;
+.modal.active .modal__overlay {
+  opacity: 1;
+  transition: opacity 0.4s ease-out;
 }
 .modal__container {
   position: relative;
@@ -507,13 +514,16 @@ a:hover {
   border-radius: 8px;
   overflow: hidden;
   margin: 5% auto;
-  animation: open-modal 0.8s;
   color: #ffffff;
+  animation: close-modal 0.8s;
 }
 @media screen and (max-width: 992px) {
   .modal__container {
     margin: 110px auto 5% auto;
   }
+}
+.modal.active .modal__container {
+  animation: open-modal 0.8s;
 }
 .modal__close {
   position: absolute;

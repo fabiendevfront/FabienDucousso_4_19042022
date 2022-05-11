@@ -40,180 +40,182 @@
             </div>
         </section>
         <div class="modal modal-trigger">
-            <div class="modal__container">
-                <span class="modal__close modal-trigger"></span>
-                <div class="modal__body">
-                    <form class="form-comp" name="reserve" action="index.html" method="post">
-                        <div class="form-comp__group">
-                            <label for="first" class="form-comp__label">Prénom <abbr title="Ce champ est obligatoire">*</abbr></label>
-                            <input
-                                class="form-comp__input form-comp__input--text"
-                                type="text"
-                                id="first"
-                                name="first"
-                            />
-                            <p class="form-comp__error"></p>
-                        </div>
-                        <div class="form-comp__group">
-                            <label for="last" class="form-comp__label">Nom <abbr title="Ce champ est obligatoire">*</abbr></label>
-                            <input
-                                class="form-comp__input form-comp__input--text"
-                                type="text"
-                                id="last"
-                                name="last"
-                            />
-                            <p class="form-comp__error"></p>
-                        </div>
-                        <div class="form-comp__group">
-                            <label for="email" class="form-comp__label">E-mail <abbr title="Ce champ est obligatoire">*</abbr></label>
-                            <input
-                                class="form-comp__input form-comp__input--text"
-                                type="email"
-                                id="email"
-                                name="email"
-                            />
-                            <p class="form-comp__error"></p>
-                        </div>
-                        <div class="form-comp__group">
-                            <label for="birthDate" class="form-comp__label">Date de naissance <abbr title="Ce champ est obligatoire">*</abbr></label>
-                            <input
-                                class="form-comp__input form-comp__input--text"
-                                type="date"
-                                id="birthDate"
-                                name="birthDate"
-                            />
-                            <p class="form-comp__error"></p>
-                        </div>
-                        <div class="form-comp__group">
-                            <label for="nbTournament" class="form-comp__label">À combien de tournois GameOn avez-vous déjà participé ? <abbr title="Ce champ est obligatoire">*</abbr></label>
-                            <input
-                                class="form-comp__input form-comp__input--text"
-                                type="number"
-                                id="nbTournament"
-                                name="nbTournament"
-                            />
-                            <p class="form-comp__error"></p>
-                        </div>
-                        <div class="form-comp__group">
-                            <p class="form-comp__label">À quel tournoi souhaitez-vous participer cette année ? <abbr title="Ce champ est obligatoire">*</abbr></p>
-                            <ul class="form-comp__city-items">
-                                <li>
-                                    <input
+            <div class="modal__overlay">
+                <div class="modal__container">
+                    <span class="modal__close modal-trigger"></span>
+                    <div class="modal__body">
+                        <form class="form-comp" name="reserve" action="index.html" method="post">
+                            <div class="form-comp__group">
+                                <label for="first" class="form-comp__label">Prénom <abbr title="Ce champ est obligatoire">*</abbr></label>
+                                <input
+                                    class="form-comp__input form-comp__input--text"
+                                    type="text"
+                                    id="first"
+                                    name="first"
+                                />
+                                <p class="form-comp__error"></p>
+                            </div>
+                            <div class="form-comp__group">
+                                <label for="last" class="form-comp__label">Nom <abbr title="Ce champ est obligatoire">*</abbr></label>
+                                <input
+                                    class="form-comp__input form-comp__input--text"
+                                    type="text"
+                                    id="last"
+                                    name="last"
+                                />
+                                <p class="form-comp__error"></p>
+                            </div>
+                            <div class="form-comp__group">
+                                <label for="email" class="form-comp__label">E-mail <abbr title="Ce champ est obligatoire">*</abbr></label>
+                                <input
+                                    class="form-comp__input form-comp__input--text"
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                />
+                                <p class="form-comp__error"></p>
+                            </div>
+                            <div class="form-comp__group">
+                                <label for="birthDate" class="form-comp__label">Date de naissance <abbr title="Ce champ est obligatoire">*</abbr></label>
+                                <input
+                                    class="form-comp__input form-comp__input--text"
+                                    type="date"
+                                    id="birthDate"
+                                    name="birthDate"
+                                />
+                                <p class="form-comp__error"></p>
+                            </div>
+                            <div class="form-comp__group">
+                                <label for="nbTournament" class="form-comp__label">À combien de tournois GameOn avez-vous déjà participé ? <abbr title="Ce champ est obligatoire">*</abbr></label>
+                                <input
+                                    class="form-comp__input form-comp__input--text"
+                                    type="number"
+                                    id="nbTournament"
+                                    name="nbTournament"
+                                />
+                                <p class="form-comp__error"></p>
+                            </div>
+                            <div class="form-comp__group">
+                                <p class="form-comp__label">À quel tournoi souhaitez-vous participer cette année ? <abbr title="Ce champ est obligatoire">*</abbr></p>
+                                <ul class="form-comp__city-items">
+                                    <li>
+                                        <input
+                                        class="form-comp__input form-comp__input--checkbox"
+                                        type="radio"
+                                        id="location1"
+                                        name="location"
+                                        value="New York"
+                                        />
+                                        <label class="form-comp__label form-comp__label--checkbox" for="location1">
+                                            <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
+                                            New York
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input
+                                        class="form-comp__input form-comp__input--checkbox"
+                                        type="radio"
+                                        id="location2"
+                                        name="location"
+                                        value="San Francisco"
+                                        />
+                                        <label class="form-comp__label form-comp__label--checkbox" for="location2">
+                                            <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
+                                            San Francisco
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input
+                                        class="form-comp__input form-comp__input--checkbox"
+                                        type="radio"
+                                        id="location3"
+                                        name="location"
+                                        value="Seattle"
+                                        />
+                                        <label class="form-comp__label form-comp__label--checkbox" for="location3">
+                                            <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
+                                            Seattle
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input
+                                        class="form-comp__input form-comp__input--checkbox"
+                                        type="radio"
+                                        id="location4"
+                                        name="location"
+                                        value="Chicago"
+                                        />
+                                        <label class="form-comp__label form-comp__label--checkbox" for="location4">
+                                            <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
+                                            Chicago
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input
+                                        class="form-comp__input form-comp__input--checkbox"
+                                        type="radio"
+                                        id="location5"
+                                        name="location"
+                                        value="Boston"
+                                        />
+                                        <label class="form-comp__label form-comp__label--checkbox" for="location5">
+                                            <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
+                                            Boston
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input
+                                        class="form-comp__input form-comp__input--checkbox"
+                                        type="radio"
+                                        id="location6"
+                                        name="location"
+                                        value="Portland"
+                                        />
+                                        <label class="form-comp__label form-comp__label--checkbox" for="location6">
+                                            <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
+                                            Portland
+                                        </label>
+                                    </li>
+                                </ul>
+                                <p class="form-comp__error-location"></p>
+                            </div>
+                            <div class="form-comp__group">
+                                <input
                                     class="form-comp__input form-comp__input--checkbox"
-                                    type="radio"
-                                    id="location1"
-                                    name="location"
-                                    value="New York"
-                                    />
-                                    <label class="form-comp__label form-comp__label--checkbox" for="location1">
-                                        <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
-                                        New York
-                                    </label>
-                                </li>
-                                <li>
-                                    <input
+                                    type="checkbox"
+                                    id="terms"
+                                    name="terms"
+                                />
+                                <label class="form-comp__label form-comp__label--checkbox form-comp__label--terms" for="terms">
+                                    <span class="form-comp__checkbox-icon form-comp__checkbox-icon--square"></span>
+                                    J'ai lu et accepté les conditions d'utilisation. <abbr title="Ce champ est obligatoire">*</abbr>
+                                </label>
+                                <p class="form-comp__error-terms"></p>
+                            </div>
+                            <div class="form-comp__group">
+                                <input
                                     class="form-comp__input form-comp__input--checkbox"
-                                    type="radio"
-                                    id="location2"
-                                    name="location"
-                                    value="San Francisco"
-                                    />
-                                    <label class="form-comp__label form-comp__label--checkbox" for="location2">
-                                        <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
-                                        San Francisco
-                                    </label>
-                                </li>
-                                <li>
-                                    <input
-                                    class="form-comp__input form-comp__input--checkbox"
-                                    type="radio"
-                                    id="location3"
-                                    name="location"
-                                    value="Seattle"
-                                    />
-                                    <label class="form-comp__label form-comp__label--checkbox" for="location3">
-                                        <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
-                                        Seattle
-                                    </label>
-                                </li>
-                                <li>
-                                    <input
-                                    class="form-comp__input form-comp__input--checkbox"
-                                    type="radio"
-                                    id="location4"
-                                    name="location"
-                                    value="Chicago"
-                                    />
-                                    <label class="form-comp__label form-comp__label--checkbox" for="location4">
-                                        <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
-                                        Chicago
-                                    </label>
-                                </li>
-                                <li>
-                                    <input
-                                    class="form-comp__input form-comp__input--checkbox"
-                                    type="radio"
-                                    id="location5"
-                                    name="location"
-                                    value="Boston"
-                                    />
-                                    <label class="form-comp__label form-comp__label--checkbox" for="location5">
-                                        <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
-                                        Boston
-                                    </label>
-                                </li>
-                                <li>
-                                    <input
-                                    class="form-comp__input form-comp__input--checkbox"
-                                    type="radio"
-                                    id="location6"
-                                    name="location"
-                                    value="Portland"
-                                    />
-                                    <label class="form-comp__label form-comp__label--checkbox" for="location6">
-                                        <span class="form-comp__checkbox-icon form-comp__checkbox-icon--round"></span>
-                                        Portland
-                                    </label>
-                                </li>
-                            </ul>
-                            <p class="form-comp__error-location"></p>
-                        </div>
-                        <div class="form-comp__group">
+                                    type="checkbox"
+                                    id="checkbox2"
+                                />
+                                <label class="form-comp__label form-comp__label--checkbox" for="checkbox2">
+                                    <span class="form-comp__checkbox-icon form-comp__checkbox-icon--square"></span>
+                                    Je souhaite être prévenu des prochains évènements.
+                                </label>
+                            </div>
                             <input
-                                class="form-comp__input form-comp__input--checkbox"
-                                type="checkbox"
-                                id="terms"
-                                name="terms"
+                                class="form-comp__btn btn btn--modal"
+                                type="submit"
+                                value="C'est parti"
                             />
-                            <label class="form-comp__label form-comp__label--checkbox form-comp__label--terms" for="terms">
-                                <span class="form-comp__checkbox-icon form-comp__checkbox-icon--square"></span>
-                                J'ai lu et accepté les conditions d'utilisation. <abbr title="Ce champ est obligatoire">*</abbr>
-                            </label>
-                            <p class="form-comp__error-terms"></p>
+                        </form>
+                        <div class="modal__success">
+                            <div class="modal__success-cont">
+                                <p class="modal__thanks">Merci pour votre inscription !</p>
+                                <p class="modal__registered">Votre réservation a été reçue.</p>
+                            </div>
+                            <button class="modal__btn btn btn--modal modal-trigger">Fermer</button>
                         </div>
-                        <div class="form-comp__group">
-                            <input
-                                class="form-comp__input form-comp__input--checkbox"
-                                type="checkbox"
-                                id="checkbox2"
-                            />
-                            <label class="form-comp__label form-comp__label--checkbox" for="checkbox2">
-                                <span class="form-comp__checkbox-icon form-comp__checkbox-icon--square"></span>
-                                Je souhaite être prévenu des prochains évènements.
-                            </label>
-                        </div>
-                        <input
-                            class="form-comp__btn btn btn--modal"
-                            type="submit"
-                            value="C'est parti"
-                        />
-                    </form>
-                    <div class="modal__success">
-                        <div class="modal__success-cont">
-                            <p class="modal__thanks">Merci pour votre inscription !</p>
-                            <p class="modal__registered">Votre réservation a été reçue.</p>
-                        </div>
-                        <button class="modal__btn btn btn--modal modal-trigger">Fermer</button>
                     </div>
                 </div>
             </div>

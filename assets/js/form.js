@@ -8,13 +8,13 @@
 
 // Object contain DOM selection of inputs
 const formInputs = {
-    first: document.getElementById("first"),
-    last: document.getElementById("last"),
-    email: document.getElementById("email"),
-    birth: document.getElementById("birthDate"),
-    tournament: document.getElementById("nbTournament"),
+    first: document.querySelector("#first"),
+    last: document.querySelector("#last"),
+    email: document.querySelector("#email"),
+    birth: document.querySelector("#birthDate"),
+    tournament: document.querySelector("#nbTournament"),
     allCities: document.querySelectorAll("input[name=location]"),
-    terms: document.getElementById("terms"),
+    terms: document.querySelector("#terms"),
     allInputs: document.querySelectorAll(".form-comp__input--text"),
     allCheckbox: document.querySelectorAll(".form-comp__input--checkbox")
 };
@@ -48,9 +48,10 @@ const errorMsg = {
 /* Object contain regex for inputs test
 Regex name:
 * ^ = start of sequence
-* [a-z] = letters from a to z
+* [\p{L}] = unicode category, "L" = any kind of letter from any language
 * {2,25} = must contain between 2 and 25 characters
 * $ = end of sequence
+* u = match unicode characters
 * i = case insensitive
 Regex email:
 * () = group
@@ -63,7 +64,7 @@ Regex tournament:
 * [0-9] = numbers from 0 to 9
 */
 const regexPatterns = {
-    name: /^[a-z]{2,25}$/i,
+    name: /^[\p{L}]{2,25}$/ui,
     email: /^[a-z\d]([._-]?[a-z\d])*@[a-z\d]([-.]?[a-z\d])*\.([a-z]{2,4})$/i,
     tournament: /^[0-9]{1,2}$/
 };

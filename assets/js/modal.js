@@ -16,11 +16,13 @@ const modalTriggers = document.querySelectorAll(".modal-trigger");
    Display and hide modal
    ====================== */
 
-// Add or remove class active that display the modal
+// Add or remove class active that display the modal and go to top of page.
 const toggleModal = () => {
     modalItem.classList.toggle("active");
     formItem.style.display = "block";
     modalSuccess.style.display = "none";
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
 
 /* =============
@@ -45,9 +47,12 @@ modalContainer.addEventListener('click', (event) => {
     event.stopPropagation();
 });
 
+
 // Hide modal when clicking on "echap key" with "toggleModal" function
 document.addEventListener('keydown', (event) => {
     if (event.code == 'Escape') {
-        toggleModal();
+        if (modalItem.classList.length !== 2) {
+            toggleModal();
+        }
     }
 });
