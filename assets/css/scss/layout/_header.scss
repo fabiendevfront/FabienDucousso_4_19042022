@@ -16,7 +16,7 @@
         height: 40px;
     }
 
-    nav {
+    &__nav {
         position: relative;
         height: auto;
 
@@ -31,8 +31,8 @@
         align-items: center;
 
         @include mixins.small-screen {
+            visibility: hidden;
             background: variables.$white;
-            display: none;
             width: 300px;
             position: absolute;
             right: -10px;
@@ -45,9 +45,8 @@
             box-shadow: 3px 3px 12px darken(variables.$white, 30%);
         }
 
-        &--responsive {
-            display: flex;
-            animation: open-menu 0.8s;
+        &.active {
+            visibility: visible;
 
             + .header__icon {
                 @include mixins.font-size(20px);

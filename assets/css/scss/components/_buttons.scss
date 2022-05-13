@@ -8,10 +8,11 @@
     border-radius: 8px;
     border: 0;
     cursor: pointer;
-    transition: background-color 0.5s linear;
+    transition: background-color 0.4s ease-out;
 
     &:hover {
         background-color: variables.$secondary-color;
+        transition: background-color 0.4s ease-out;
     }
 
     &--signup {

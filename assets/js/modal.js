@@ -15,14 +15,18 @@ const modalTriggers = document.querySelectorAll(".modal-trigger");
 /* ======================
    Display and hide modal
    ====================== */
-
 // Add or remove class active that display the modal and go to top of page.
 const toggleModal = () => {
     modalItem.classList.toggle("active");
     formItem.style.display = "block";
     modalSuccess.style.display = "none";
-    document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+
+    if (modalItem.classList.length !== 2) {
+        modalContainer.style.animation = "open-modal 0.8s";
+    } else {
+        modalContainer.style.animation = "close-modal 0.8s";
+    }
 }
 
 /* =============
