@@ -1,6 +1,10 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins';
 
+/******************/
+/* FORM COMPONENT */
+/*****************/
+
 .form-comp {
     padding-top: 25px;
 
@@ -49,6 +53,7 @@
             position: relative;
             margin: 0 45px 8px 0;
             @include mixins.font-size(13px);
+            font-family: variables.$font-secondary;
             font-weight: normal;
             text-indent: 29px;
         }

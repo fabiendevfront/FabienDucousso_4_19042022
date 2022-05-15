@@ -1,11 +1,14 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins';
+
+// Import Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 /***********/
 /* GENERAL */
 /***********/
+
 body {
     font-family: variables.$font-default;
     @include mixins.font-size(18px);

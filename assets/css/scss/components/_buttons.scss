@@ -1,6 +1,10 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins';
 
+/********************/
+/* BUTTON COMPONENT */
+/********************/
+
 .btn {
     background-color: variables.$primary-color;
     @include mixins.font-size(21px);
@@ -22,7 +26,7 @@
             @include mixins.font-size(32px);
         }
     }
-
+    
     &--modal {
         padding: 12px 30px;
     }

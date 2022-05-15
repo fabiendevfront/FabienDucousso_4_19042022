@@ -1,6 +1,10 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins';
 
+/*****************/
+/* HEADER LAYOUT */
+/*****************/
+
 .header {
     width: 100%;
     display: flex;

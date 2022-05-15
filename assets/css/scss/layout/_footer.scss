@@ -1,6 +1,10 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins';
 
+/*****************/
+/* FOOTER LAYOUT */
+/*****************/
+
 .footer {
     padding-left: 3%;
     font-family: variables.$font-secondary;

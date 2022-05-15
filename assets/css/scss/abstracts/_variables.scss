@@ -1,6 +1,7 @@
 /**********/
 /* FONTS */
 /*********/
+
 $font-default: "DM Sans", Arial, Helvetica, sans-serif;
 $font-secondary: 'Roboto', sans-serif;
 
@@ -8,6 +9,7 @@ $font-secondary: 'Roboto', sans-serif;
 /***********/
 /* COLORS */
 /**********/
+
 $primary-color: #fe142f;
 $secondary-color: #3876ac;
 $black: #000000;
@@ -20,12 +22,15 @@ $bg-dark: lighten($black, 14);
 /**********/
 /* SIZES */
 /*********/
+
 // Margin bottom generic for elements in responsive tablet/mobile
 $resp-mb: 0 0 40px 0;
 
 /***************/
 /* RESPONSIVE */
 /**************/
+
+// Screen breakpoints for responsive
 $breakpoints: (
     small-screen: 992px,
     wide-screen: 1920px

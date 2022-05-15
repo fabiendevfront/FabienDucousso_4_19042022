@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom JS -->
     <script src="assets/js/menu.js" defer></script>
     <script src="assets/js/modal.js" defer></script>
     <script src="assets/js/form.js" defer></script>
@@ -27,6 +30,7 @@
         </nav>
     </header>
     <main>
+        <!-- HERO SECTION: Title, subtitle, picture, button -->
         <section class="hero">
             <div class="hero__container">
                 <div class="hero__content">
@@ -39,11 +43,13 @@
                 <button class="hero__btn btn btn--signup modal-trigger" id="open-modal">Je m'inscris</button>
             </div>
         </section>
+        <!-- MODAL COMPONENT: Overlay, close button, modal body, form component, modal success -->
         <div class="modal modal-trigger">
             <div class="modal__overlay">
                 <div class="modal__container">
                     <span class="modal__close modal-trigger"></span>
                     <div class="modal__body">
+                        <!-- FORM COMPONENT: Form groups, labels, inputs, submit button -->
                         <form class="form-comp" name="reserve" action="index.html" method="post">
                             <div class="form-comp__group">
                                 <label for="first" class="form-comp__label">Prénom <abbr title="Ce champ est obligatoire">*</abbr></label>
@@ -209,6 +215,7 @@
                                 value="C'est parti"
                             />
                         </form>
+                        <!-- MODAL SUCCESS-->
                         <div class="modal__success">
                             <div class="modal__success-cont">
                                 <p class="modal__thanks">Merci pour votre inscription !</p>
@@ -221,6 +228,7 @@
             </div>
         </div>
     </main>
+     <!-- FOOTER -->
     <footer class="footer">
         <p class="footer__copyrights">Copyright 2014 - 2022, GameOn Inc.</p>
     </footer>
