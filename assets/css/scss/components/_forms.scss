@@ -6,7 +6,7 @@
 /*****************/
 
 .form-comp {
-    padding-top: 25px;
+    padding-top: 20px;
 
     &__input {
         padding: 8px;
@@ -46,7 +46,7 @@
 
     &__label {
         display: inline-block;
-        @include mixins.font-size(16px);
+        @include mixins.font-size(14px);
         margin: 5px 0 6px 0;
 
         &--checkbox {
@@ -72,10 +72,12 @@
     &__error-terms {
         font-family: variables.$font-secondary;
         color: variables.$primary-color;
-        @include mixins.font-size(13px);
+        @include mixins.font-size(12px);
         margin: 5px 0 0 0;
-        height: 18px;
+        height: 16px;
+        line-height: 1;
     }
+
     &__error-terms {
         margin: 0;
     }

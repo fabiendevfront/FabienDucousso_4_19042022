@@ -12,19 +12,23 @@
     align-items: center;
     padding: 30px 3%;
 
-    @include mixins.small-screen {
+    @include mixins.medium-screen {
         padding: 30px 5%;
     }
 
     &__logo {
         height: 40px;
+
+        @include mixins.small-screen {
+            height: 28px;
+        }
     }
 
     &__nav {
         position: relative;
         height: auto;
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             height: 51px;
         }
     }
@@ -34,7 +38,7 @@
         justify-content: flex-end;
         align-items: center;
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             visibility: hidden;
             background: variables.$white;
             width: 300px;
@@ -78,7 +82,7 @@
             border-radius: 8px;
         }
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             margin: 0;
         }
     }
@@ -87,19 +91,24 @@
         display: none;
         line-height: 0;
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             display: block;
             cursor: pointer;
             position: absolute;
             right: 0;
             bottom: 5px;
             z-index: 1000;
-            @include mixins.font-size(30px);
+            @include mixins.font-size(35px);
             color: variables.$primary-color;
 
             &:hover {
                 color: variables.$black;
             }
+        }
+
+        @include mixins.small-screen {
+            @include mixins.font-size(28px);
+            bottom: 10px;
         }
     }
 }

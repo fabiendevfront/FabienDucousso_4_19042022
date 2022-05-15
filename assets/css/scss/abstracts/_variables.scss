@@ -32,6 +32,7 @@ $resp-mb: 0 0 40px 0;
 
 // Screen breakpoints for responsive
 $breakpoints: (
-    small-screen: 992px,
+    small: 576px,
+    large: 992px,
     wide-screen: 1920px
 );

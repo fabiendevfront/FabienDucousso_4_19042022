@@ -10,7 +10,7 @@
     font-family: variables.$font-secondary;
     text-align: start;
 
-    @include mixins.small-screen {
+    @include mixins.medium-screen {
         text-align: center;
         padding-left: 0;
     }
@@ -20,8 +20,12 @@
         font-weight: 700;
         margin: 0 0 50px 0;
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             margin: variables.$resp-mb;
+        }
+
+        @include mixins.small-screen {
+            @include mixins.font-size(14px);
         }
     }
 }

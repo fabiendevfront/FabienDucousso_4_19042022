@@ -20,9 +20,16 @@
 /* RESPONSIVE */
 /**************/
 
-// 1. Contain media queries for small-screen (tablette and mobile)
+// 1. Contain media queries for small screen (mobile)
 @mixin small-screen {
-	@media screen and (max-width: map-get(variables.$breakpoints, small-screen)) {
+	@media screen and (max-width: map-get(variables.$breakpoints, small)) {
+		@content;
+	}
+}
+
+// 1. Contain media queries for medium-screen (tablet)
+@mixin medium-screen {
+	@media screen and (max-width: map-get(variables.$breakpoints, large)) {
 		@content;
 	}
 }

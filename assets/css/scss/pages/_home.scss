@@ -13,7 +13,7 @@
     box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.25);
     margin-bottom: 50px;
 
-    @include mixins.small-screen {
+    @include mixins.medium-screen {
         height: auto;
         margin: 0;
         background: transparent;
@@ -27,7 +27,7 @@
         display: flex;
         justify-content: space-between;
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             position: unset;
             flex-direction: column;
             justify-content: flex-start;
@@ -39,7 +39,7 @@
         width: 45%;
         color: variables.$white;
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             width: 100%;
             color: variables.$black;
         }
@@ -50,22 +50,24 @@
     &__btn {
         position: absolute;
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             position: unset;
         }
     }
 
     &__title {
         width: 90%;
+        max-width: 964px;
         top: 50px;
         left: 5%;
         margin: 0 0 73px 0;
 
         @include mixins.wide-screen {
             width: 70%;
+            max-width: none;
         }
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             width: 100%;
             margin: variables.$resp-mb;
         }
@@ -73,27 +75,27 @@
 
     &__subtitle {
         width: 38%;
-        bottom: 160px;
+        bottom: 140px;
         left: 5%;
         margin: 0;
         padding: 0;
 
         @include mixins.wide-screen {
             width: 30%;
-            bottom: 200px;
+            bottom: 180px;
         }
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             width: 100%;
             margin: variables.$resp-mb;
         }
     }
 
     &__btn {
-        bottom: 60px;
+        bottom: 45px;
         left: 5%;
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             margin-top: 20px;
             margin: variables.$resp-mb;
         }
@@ -102,10 +104,14 @@
     &__picture {
         width: 55%;
 
-        @include mixins.small-screen {
+        @include mixins.medium-screen {
             width: 100%;
             height: 500px;
             margin: variables.$resp-mb;
+        }
+
+        @include mixins.small-screen {
+            height: 350px;
         }
 
         img {
@@ -114,7 +120,7 @@
             object-fit: cover;
             border-radius: 0 8px 8px 0;
 
-            @include mixins.small-screen {
+            @include mixins.medium-screen {
                 border-radius: 8px;
             }
         }
