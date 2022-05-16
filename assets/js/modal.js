@@ -27,7 +27,7 @@ const toggleModal = () => {
         modalSuccess.style.display = "none";
     } else {
         modalContainer.style.animation = "close-modal 0.8s";
-        modalSuccess.style.display = "block";
+        modalSuccess.style.display = "flex";
     }
 }
 
@@ -57,7 +57,7 @@ modalContainer.addEventListener('click', (event) => {
 // Hide modal when clicking on "echap key" with "toggleModal" function
 document.addEventListener('keydown', (event) => {
     if (event.code == 'Escape') {
-        if (modalItem.classList.length !== 2) {
+        if (modalItem.classList.length !== 1) {
             toggleModal();
         }
     }
