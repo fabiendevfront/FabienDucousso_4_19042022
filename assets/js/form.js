@@ -29,7 +29,7 @@ const errorArea = {
     cities: document.querySelector(".form-comp__error-location"),
     citiesCont: document.querySelector(".form-comp__city-items"),
     terms: document.querySelector(".form-comp__error-terms")
-}
+};
 
 /* =====================================
    Objects for Regex and errors messages
