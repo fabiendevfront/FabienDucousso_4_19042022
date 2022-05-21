@@ -17,10 +17,9 @@ const modalTriggers = document.querySelectorAll(".modal-trigger");
    ====================== */
 
 // Add or remove class active that display the modal and go to top of page.
-const toggleModal = (event) => {
+const toggleModal = () => {
     modalItem.classList.toggle("active");
     document.documentElement.scrollTop = 0;
-    event.stopPropagation();
 
     if (modalItem.classList.length !== 1) {
         modalContainer.style.animation = "open-modal 0.8s";
@@ -46,6 +45,11 @@ const displaySuccessModal = () => {
    Events
    ====== */
 
+// Prevents current event propagating up in the DOM
+modalContainer.addEventListener('click', (event) => {
+    event.stopPropagation();
+});
+
 // Assign event function to the buttons. Event execute toggleModal function for display/hide modal.
 modalTriggers.forEach((trigger) => {
     trigger.addEventListener("click", toggleModal);
@@ -56,7 +60,7 @@ modalTriggers.forEach((trigger) => {
 document.addEventListener('keydown', (event) => {
     if (event.code == 'Escape') {
         if (modalItem.classList.length !== 1) {
-            toggleModal(event);
+            toggleModal();
         }
     }
 });
